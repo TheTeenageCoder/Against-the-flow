@@ -10,6 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Against the flow"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/name="Against the Flow"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Against the Flow"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
