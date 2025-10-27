@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bf8k6rcnxue5x"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="WaterManager" type="Node2D" parent="."]
+
+[node name="StructureManager" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
