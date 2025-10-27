@@ -1,173 +1,566 @@
-[gd_scene load_steps=4 format=3 uid="uid://o2tk3jns8edl"]
+[gd_scene load_steps=8 format=3 uid="uid://o2tk3jns8edl"]
 
+[ext_resource type="Script" uid="uid://bsqmkn30nnc3l" path="res://Scripts/gridInterc.gd" id="1_nxogm"]
 [ext_resource type="Script" uid="uid://c6k546j3ulcfd" path="res://Scripts/coordinates.gd" id="1_ulcgi"]
+[ext_resource type="PackedScene" uid="uid://bhmpnisn7iijt" path="res://cube.tscn" id="3_3253y"]
+[ext_resource type="Shader" uid="uid://yqac52fnvbdy" path="res://grid.gdshader" id="4_m7jmp"]
+[ext_resource type="Script" uid="uid://cvb6m1rkatvxa" path="res://Scripts/ghostBlocks.gd" id="4_u3cyc"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_ulcgi"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_y2354"]
+size = Vector2(10, 10)
+subdivide_width = 5
+subdivide_depth = 5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxogm"]
-albedo_color = Color(0, 0.4862745, 0.043137256, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ni31j"]
+render_priority = 0
+shader = ExtResource("4_m7jmp")
+shader_parameter/line_color = Color(0.2, 0.8, 1, 0.4)
+shader_parameter/grid_size = 1.0
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.85405964, -0.33436212, 0.39847732, -2.0401096e-08, 0.76604444, 0.64278764, -0.5201752, -0.5489789, 0.6542476, 2.089936, 3.012104, 4.1342397)
+transform = Transform3D(0.85405964, -0.33436212, 0.39847732, -2.0401096e-08, 0.76604444, 0.64278764, -0.5201752, -0.5489789, 0.6542476, 8.599394, 4.914067, 2.798185)
+fov = 76.83108
+script = ExtResource("1_nxogm")
 
 [node name="map1" type="Node3D" parent="."]
 script = ExtResource("1_ulcgi")
 
 [node name="Layer0" type="Node3D" parent="map1"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D100" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D108" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D109" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="map1/Layer0"]
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="map1/Layer0"]
+[node name="MeshInstance3D101" parent="map1/Layer0" instance=ExtResource("3_3253y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="map1/Layer0"]
+[node name="MeshInstance3D102" parent="map1/Layer0" instance=ExtResource("3_3253y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D103" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D104" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D105" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D106" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D107" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D110" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D111" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D112" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -1)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D113" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D114" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="map1/Layer0"]
+[node name="MeshInstance3D115" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D116" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D117" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D118" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D119" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D120" parent="map1/Layer0" instance=ExtResource("3_3253y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D121" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="map1/Layer0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+[node name="MeshInstance3D122" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -2)
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="map1/Layer0"]
+[node name="MeshInstance3D123" parent="map1/Layer0" instance=ExtResource("3_3253y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="map1/Layer0"]
+[node name="MeshInstance3D124" parent="map1/Layer0" instance=ExtResource("3_3253y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
-mesh = SubResource("BoxMesh_ulcgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
-metadata/_edit_group_ = true
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D125" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D126" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D127" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D128" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D129" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D130" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D131" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D132" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D133" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D134" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D135" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D136" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D137" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D138" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D139" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D140" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D141" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D142" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D143" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D144" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D145" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D146" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D147" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D148" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D149" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D150" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D151" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D152" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D153" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D154" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D155" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D156" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D157" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D158" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D159" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D160" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D161" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D162" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D163" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D164" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D165" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D166" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D167" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D168" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D169" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D170" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D171" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D172" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D173" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D174" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D175" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D176" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D177" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D178" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D179" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D180" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D200" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D201" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D202" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D203" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D204" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D205" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D206" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D207" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D208" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D209" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D210" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D211" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D212" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D213" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D214" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D215" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D216" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D217" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D218" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D220" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D221" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D222" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D223" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D224" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D225" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D226" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D227" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D228" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D229" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D219" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D181" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D182" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D183" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D184" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D185" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D186" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D187" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D188" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D189" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D190" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D191" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D192" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D193" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D194" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D195" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D196" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D197" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D198" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D199" parent="map1/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -6)
+skeleton = NodePath("../../..")
 
 [node name="Layer1" type="Node3D" parent="map1"]
 
+[node name="gridPlane" type="MeshInstance3D" parent="map1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.51, -4.5)
+mesh = SubResource("PlaneMesh_y2354")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ni31j")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.8942402, -0.15193082, 0.42101246, -0.28097105, 0.54165214, 0.79225516, -0.34841034, -0.8267587, 0.44167894, 2.171621, 3.5330667, 3.4013047)
+transform = Transform3D(0.8942402, -0.15193088, 0.42101246, -0.28097105, 0.54165214, 0.79225516, -0.34841034, -0.8267587, 0.44167897, 10.796472, 3.5330667, 1.4013042)
 shadow_enabled = true
+
+[node name="ghostBlocks" type="Node3D" parent="."]
+
+[node name="logic" type="Node3D" parent="ghostBlocks"]
+script = ExtResource("4_u3cyc")
