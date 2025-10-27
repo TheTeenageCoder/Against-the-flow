@@ -11,11 +11,11 @@ size = Vector2(10, 10)
 subdivide_width = 5
 subdivide_depth = 5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ni31j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7jmp"]
 render_priority = 0
 shader = ExtResource("4_m7jmp")
-shader_parameter/line_color = Color(0.2, 0.8, 1, 0.4)
-shader_parameter/grid_size = 1.0
+shader_parameter/line_color = Color(1, 1, 1, 0.2)
+shader_parameter/grid_size = 0.1
 
 [node name="Main" type="Node3D"]
 
@@ -554,7 +554,7 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.51, -4.5)
 mesh = SubResource("PlaneMesh_y2354")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_ni31j")
+surface_material_override/0 = SubResource("ShaderMaterial_m7jmp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.8942402, -0.15193088, 0.42101246, -0.28097105, 0.54165214, 0.79225516, -0.34841034, -0.8267587, 0.44167897, 10.796472, 3.5330667, 1.4013042)
