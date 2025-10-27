@@ -1,3 +1,173 @@
-[gd_scene format=3 uid="uid://o2tk3jns8edl"]
+[gd_scene load_steps=4 format=3 uid="uid://o2tk3jns8edl"]
 
-[node name="scene" type="Node3D"]
+[ext_resource type="Script" uid="uid://c6k546j3ulcfd" path="res://Scripts/coordinates.gd" id="1_ulcgi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ulcgi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxogm"]
+albedo_color = Color(0, 0.4862745, 0.043137256, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.85405964, -0.33436212, 0.39847732, -2.0401096e-08, 0.76604444, 0.64278764, -0.5201752, -0.5489789, 0.6542476, 2.089936, 3.012104, 4.1342397)
+
+[node name="map1" type="Node3D" parent="."]
+script = ExtResource("1_ulcgi")
+
+[node name="Layer0" type="Node3D" parent="map1"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="map1/Layer0"]
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="map1/Layer0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+mesh = SubResource("BoxMesh_ulcgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxogm")
+metadata/_edit_group_ = true
+
+[node name="Layer1" type="Node3D" parent="map1"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8942402, -0.15193082, 0.42101246, -0.28097105, 0.54165214, 0.79225516, -0.34841034, -0.8267587, 0.44167894, 2.171621, 3.5330667, 3.4013047)
+shadow_enabled = true
