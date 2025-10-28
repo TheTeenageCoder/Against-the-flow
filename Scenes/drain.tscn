@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6r0qgs4rop3h"]
+
+[ext_resource type="ArrayMesh" uid="uid://cm2oe10t3od5" path="res://Models/drain/source/Drain.obj" id="1_bkr73"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_bkr73")
