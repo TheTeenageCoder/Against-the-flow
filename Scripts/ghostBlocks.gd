@@ -5,20 +5,19 @@ extends Node3D
 var ghost: Node3D
 
 func _ready():
-	# Auto-find camera if not set manually
 	if camera == null:
 		camera = get_viewport().get_camera_3d()
 
 	# Load ghost if not assigned in inspector
 	if ghost_scene == null:
-		ghost_scene = preload("res://ghostBlock.tscn")
+		ghost_scene = preload("res://Scenes/ghostBlock.tscn")
 
 	ghost = ghost_scene.instantiate()
 	add_child(ghost)
 
 func _process(_delta):
-	if camera == null:
-		return  # safety check
+	if not camera or not ghost:
+		return
 
 	var mouse_pos = get_viewport().get_mouse_position()
 	var from = camera.project_ray_origin(mouse_pos)
@@ -29,6 +28,15 @@ func _process(_delta):
 	var result = space_state.intersect_ray(query)
 
 	if result:
+		var collider = result.collider
+		var surface_height := 0.0
+		if collider is MeshInstance3D:
+			var aabb = collider.get_aabb()
+			surface_height = aabb.size.y * collider.scale.y
+
+		var ghost_height = ghost.scale.y
+		var offset_y = (surface_height / 2.0) + (ghost_height / 2.0)
 		var pos = result.position
-		var grid_pos = Vector3(round(pos.x), round(pos.y), round(pos.z))
+		var grid_pos = Vector3(round(pos.x), pos.y + offset_y, round(pos.z))
+
 		ghost.global_position = grid_pos
