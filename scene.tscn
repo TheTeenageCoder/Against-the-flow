@@ -1367,6 +1367,8 @@ surface_material_override/0 = SubResource("ShaderMaterial_m7jmp")
 
 [node name="Placed" type="Node3D" parent="map"]
 
+[node name="surface" type="Node3D" parent="map/Placed"]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.11286122, -0.62103796, 0.77561206, -0.23696648, 0.74125165, 0.6280069, -0.96493995, -0.25467172, -0.06350661, 10.796472, 4.692764, -6.7427692)
 light_color = Color(1, 1, 0.5074483, 1)
@@ -1375,10 +1377,6 @@ light_indirect_energy = 1.2
 shadow_enabled = true
 shadow_bias = 0.05
 shadow_normal_bias = 1.0
-
-[node name="ghostBlocks" type="Node3D" parent="."]
-
-[node name="logic" type="Node3D" parent="ghostBlocks"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m7jmp")

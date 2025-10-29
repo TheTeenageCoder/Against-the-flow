@@ -18,6 +18,8 @@ func _toggle_layer_animated():
 	is_animating = true
 	
 	var layer = get_node("../../../../map/Layer0")
+	var layerAssets = get_node("../../../../map/Assets")
+	var placedSurface = get_node("../../../../map/Placed/surface")
 	var grid = get_node("../../../../map/gridPlane")
 	var label = get_node("Label")
 	
@@ -34,6 +36,8 @@ func _toggle_layer_animated():
 
 	if layer.visible == true:
 		label.text = "G1"
+		layerAssets.visible = false
+		placedSurface.visible = false
 		
 		total_stagger_time = _start_staggered_animation(
 			nodes_to_animate, Vector3(1,0.2,1), MIN_SCALE, POP_DURATION, false
@@ -45,10 +49,10 @@ func _toggle_layer_animated():
 		await grid_tween.finished
 		
 		layer.visible = false
-		
 	else:
 		label.text = "L1"
 		layer.visible = true
+
 			
 		total_stagger_time = _start_staggered_animation(
 			nodes_to_animate, MIN_SCALE, Vector3(1,0.2,1), POP_DURATION, true
@@ -58,6 +62,9 @@ func _toggle_layer_animated():
 
 		await get_tree().create_timer(total_stagger_time).timeout
 		await grid_tween.finished
+		
+		layerAssets.visible = true
+		placedSurface.visible = true
 	
 	is_animating = false
 

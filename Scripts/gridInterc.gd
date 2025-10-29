@@ -6,6 +6,10 @@ extends Node3D
 @onready var map = $"../../map"
 @onready var gameManager = get_node("..")
 
+@onready var layer1 = $"../../map/Layer0"
+#@onready var ground1 = $"../../map/Layer1"
+
+
 var grid_pos
 var ghost: Node3D
 
@@ -56,10 +60,13 @@ func _process(_delta):
 			var is_occupied = is_tile_occupied()
 			ghost.visible = true
 
+			var style = ghost.get_surface_override_material(0).duplicate()
 			if is_occupied:
-				ghost.get_surface_override_material(0).duplicate().albedo_color = Color(255,0,0)
+				style.albedo_color = Color(255,0,0)
 			else:
-				ghost.get_surface_override_material(0).duplicate().albedo_color = Color(0.0, 255.014, 0.0, 1.0)
+				style.albedo_color = Color(0.0, 255.014, 0.0, 1.0)
+				
+			ghost.set_surface_override_material(0, style)
 
 			ghost.global_position = grid_pos
 		else:
@@ -72,9 +79,10 @@ func _unhandled_input(event):
 		#var grid_pos = ghostBlocks.grid_pos
 		if gameManager.current_tool == "drain":
 			print("Clicked grid:", grid_pos)
-			place_drain(grid_pos)
+			place_obj(gameManager.current_tool, grid_pos)
 			
 @export var drain_scene: PackedScene
+@export var pipe_scene: PackedScene
 
 var occupied_tiles = {}  # Dictionary for quick lookup: {"x_z_key": true}
 
@@ -90,28 +98,34 @@ func free_tile():
 	var key = str(grid_pos)
 	occupied_tiles.erase(key)
 
-func place_drain(pos):
+func place_obj(tool, pos):
 	if is_tile_occupied():
 		print("Tile already occupied!")
 		return
-
-	if gameManager.money < 300000:
-		print("Not enough money!")
-		return
-
-	gameManager.money -= 300000
-	gameManager.total_drains += 1
-	gameManager.working_drains += 1
-	gameManager._update_ui()
 	
-	if drain_scene == null:
-		drain_scene = preload("res://Scenes/drain.tscn")
-		
-	var new_drain = drain_scene.instantiate()
-	get_parent().add_child(new_drain)
-	new_drain.global_position = pos
+	match tool:
+		"drain":
+			if layer1.visible == false:
+				print("Object can only be placed on the surface")
+				return
+				
+			if gameManager.money < 300000:
+				print("Not enough money!")
+				return
+
+			gameManager.money -= 300000
+			gameManager.total_drains += 1
+			gameManager.working_drains += 1
+			gameManager._update_ui()
+			
+			if drain_scene == null:
+				drain_scene = preload("res://Scenes/drain.tscn")
+
+	var new_obj = drain_scene.instantiate()
+	get_node("../../map/Placed/surface").add_child(new_obj)
+	new_obj.global_position = pos
 	
 	var tween = create_tween()
-	new_drain.scale = Vector3.ZERO
-	tween.tween_property(new_drain, "scale", Vector3(0.01, 0.01, 0.01), 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	new_obj.scale = Vector3.ZERO
+	tween.tween_property(new_obj, "scale", Vector3(0.01, 0.01, 0.01), 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	occupy_tile()
