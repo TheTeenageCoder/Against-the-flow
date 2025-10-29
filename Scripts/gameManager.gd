@@ -1,24 +1,29 @@
 extends Node
 
+@onready var gridInterc = get_node("gridInteraction")
+
 # === Player Data ===
 var money := 3000000
 var level := 1
-var current_tool := "drain" 
-
+var current_tool := "none":
+	set(value):
+		current_tool = value
+		gridInterc.update_obj(value)
+			
 # === Time ===
 var current_month := 1
 var max_months := 2
-var month_duration := 30.0 # 30 seconds per month for quick testing
+var month_duration := 30.0 
 var month_timer := 0.0
 
 # === Game Phases ===
-var phase := "building" # "building" or "storm"
+var phase := "building" 
 var is_game_over := false
 
 # === Flood System ===
 var flood_level := 0.0
-var flood_rise_speed := 1.0 # units per second during storm
-var drain_effectiveness := 0.0 # reduced as drains break
+var flood_rise_speed := 1.0
+var drain_effectiveness := 0.0 
 var flood_safe_threshold := 0.0
 
 # === Pipe/Drain Data ===
@@ -27,7 +32,7 @@ var working_drains := 0
 var broken_drains := []
 
 # === Events ===
-var random_break_chance := 0.02 # chance per second per drain to break
+var random_break_chance := 0.1 
 
 signal month_changed(month)
 signal phase_changed(phase)
@@ -117,51 +122,3 @@ func _update_ui():
 	if has_node("../UI"):
 		var ui = get_node("../UI")
 		ui.update_ui(money, current_month, current_tool, phase, flood_level)
-
-@export var drain_scene: PackedScene
-
-var occupied_tiles = {}  # Dictionary for quick lookup: {"x_z_key": true}
-
-func is_tile_occupied(grid_pos : Vector3) -> bool:
-	var key = str(grid_pos)
-	return occupied_tiles.has(key)
-
-func occupy_tile(grid_pos: Vector3):
-	var key = str(grid_pos)
-	occupied_tiles[key] = true
-
-func free_tile(grid_pos: Vector3):
-	var key = str(grid_pos)
-	occupied_tiles.erase(key)
-
-func place_drain(pos):
-	if is_tile_occupied(pos):
-		print("Tile already occupied!")
-		return
-
-	if money < 300000:
-		print("Not enough money!")
-		return
-
-	money -= 300000
-	total_drains += 1
-	working_drains += 1
-	_update_ui()
-	
-	if drain_scene == null:
-		drain_scene = preload("res://Scenes/drain.tscn")
-		
-	var new_drain = drain_scene.instantiate()
-	get_parent().add_child(new_drain)
-	new_drain.global_position = pos
-	
-	var tween = create_tween()
-	new_drain.scale = Vector3.ZERO
-	tween.tween_property(new_drain, "scale", Vector3(0.01, 0.01, 0.01), 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	occupy_tile(pos)
-	
-	
-
-	
-	
-	

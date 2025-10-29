@@ -1,11 +1,10 @@
-[gd_scene load_steps=51 format=3 uid="uid://o2tk3jns8edl"]
+[gd_scene load_steps=50 format=3 uid="uid://o2tk3jns8edl"]
 
 [ext_resource type="Script" uid="uid://dkr855jqjki0g" path="res://Scripts/camera.gd" id="1_iss77"]
 [ext_resource type="Script" uid="uid://bsqmkn30nnc3l" path="res://Scripts/gridInterc.gd" id="1_nxogm"]
 [ext_resource type="Script" uid="uid://c6k546j3ulcfd" path="res://Scripts/coordinates.gd" id="1_ulcgi"]
 [ext_resource type="PackedScene" uid="uid://bhmpnisn7iijt" path="res://Scenes/cube.tscn" id="3_3253y"]
 [ext_resource type="Shader" uid="uid://yqac52fnvbdy" path="res://Shaders/grid.gdshader" id="4_m7jmp"]
-[ext_resource type="Script" uid="uid://cvb6m1rkatvxa" path="res://Scripts/ghostBlocks.gd" id="4_u3cyc"]
 [ext_resource type="Script" uid="uid://b5f2vr8q7vbyh" path="res://Scripts/UI.gd" id="6_g6g5t"]
 [ext_resource type="Texture2D" uid="uid://bkxkj0quyql2c" path="res://Sprites/Sun.svg" id="6_y2354"]
 [ext_resource type="FontFile" uid="uid://brqom5875s7v4" path="res://Fonts/League_Spartan/static/LeagueSpartan-SemiBold.ttf" id="7_5juve"]
@@ -1373,7 +1372,6 @@ shadow_normal_bias = 1.0
 [node name="ghostBlocks" type="Node3D" parent="."]
 
 [node name="logic" type="Node3D" parent="ghostBlocks"]
-script = ExtResource("4_u3cyc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m7jmp")
