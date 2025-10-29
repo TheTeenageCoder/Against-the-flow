@@ -1,9 +1,9 @@
 extends Node
 
 # === Player Data ===
-var money := 50000000
+var money := 3000000
 var level := 1
-var current_tool := "drain"
+var current_tool := "drain" 
 
 # === Time ===
 var current_month := 1
@@ -120,7 +120,25 @@ func _update_ui():
 
 @export var drain_scene: PackedScene
 
+var occupied_tiles = {}  # Dictionary for quick lookup: {"x_z_key": true}
+
+func is_tile_occupied(grid_pos : Vector3) -> bool:
+	var key = str(grid_pos)
+	return occupied_tiles.has(key)
+
+func occupy_tile(grid_pos: Vector3):
+	var key = str(grid_pos)
+	occupied_tiles[key] = true
+
+func free_tile(grid_pos: Vector3):
+	var key = str(grid_pos)
+	occupied_tiles.erase(key)
+
 func place_drain(pos):
+	if is_tile_occupied(pos):
+		print("Tile already occupied!")
+		return
+
 	if money < 300000:
 		print("Not enough money!")
 		return
@@ -140,8 +158,7 @@ func place_drain(pos):
 	var tween = create_tween()
 	new_drain.scale = Vector3.ZERO
 	tween.tween_property(new_drain, "scale", Vector3(0.01, 0.01, 0.01), 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
-	
+	occupy_tile(pos)
 	
 	
 

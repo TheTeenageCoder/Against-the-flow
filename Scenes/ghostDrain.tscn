@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://jbkjnlc2gwlb"]
+[gd_scene load_steps=3 format=3 uid="uid://jbkjnlc2gwlb"]
 
 [ext_resource type="ArrayMesh" uid="uid://cm2oe10t3od5" path="res://Models/drain/source/Drain.obj" id="1_4hv06"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuyu7"]
 
 [node name="MeshInstance3D" type="MeshInstance3D"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 transparency = 0.8
 mesh = ExtResource("1_4hv06")
+surface_material_override/0 = SubResource("StandardMaterial3D_vuyu7")
