@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t3w1nr4odc86"
-path="res://.godot/imported/Drainage.svg-2f8c6653b4e3b64f68a92ce730a38f96.ctex"
+uid="uid://cdqbod0grdrx8"
+path="res://.godot/imported/upgrade.svg-aab83e4f971337d051f17ca642fc13d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Drainage.svg"
-dest_files=["res://.godot/imported/Drainage.svg-2f8c6653b4e3b64f68a92ce730a38f96.ctex"]
+source_file="res://Sprites/upgrade.svg"
+dest_files=["res://.godot/imported/upgrade.svg-aab83e4f971337d051f17ca642fc13d8.ctex"]
 
 [params]
 

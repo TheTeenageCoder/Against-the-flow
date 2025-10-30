@@ -1,9 +1,16 @@
 extends Node
 
 @onready var gridInterc = get_node("gridInteraction")
+@onready var notif = get_node("../UI/notifManager")
 
 # === Player Data ===
-var money := 3000000
+var money := 3000000:
+	set(value):
+		var polarity = "-" if money > value else "+"
+		var text = polarity + "₱" + str(money-value)
+		var color = Color(1.0, 0.0, 0.0, 1.0) if money > value else Color(0.0, 1.0, 0.0, 1.0)
+		notif.notify(text, color)
+		money = value
 var level := 1
 var current_tool := "none":
 	set(value):
@@ -30,6 +37,11 @@ var flood_safe_threshold := 0.0
 var total_drains := 0
 var working_drains := 0
 var broken_drains := []
+
+var objValues = {
+	"drain": 300000,
+	"pipe": 500000
+}
 
 # === Events ===
 var random_break_chance := 0.1 

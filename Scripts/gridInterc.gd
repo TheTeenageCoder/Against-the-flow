@@ -84,6 +84,8 @@ func _unhandled_input(event):
 @export var drain_scene: PackedScene
 @export var pipe_scene: PackedScene
 
+@onready var notif = get_node("../../UI/notifManager")
+
 var occupied_tiles = {}  # Dictionary for quick lookup: {"x_z_key": true}
 
 func is_tile_occupied() -> bool:
@@ -102,18 +104,20 @@ func place_obj(tool, pos):
 	if is_tile_occupied():
 		print("Tile already occupied!")
 		return
+		
+	var new_obj
 	
 	match tool:
 		"drain":
 			if layer1.visible == false:
-				print("Object can only be placed on the surface")
+				notif.notify("Object can only be placed on the surface", Color.RED)
 				return
 				
-			if gameManager.money < 300000:
-				print("Not enough money!")
+			if gameManager.money < gameManager.objValues.drain:
+				notif.notify("Not enough money!", Color.RED)
 				return
 
-			gameManager.money -= 300000
+			gameManager.money -= gameManager.objValues.drain
 			gameManager.total_drains += 1
 			gameManager.working_drains += 1
 			gameManager._update_ui()
@@ -121,7 +125,8 @@ func place_obj(tool, pos):
 			if drain_scene == null:
 				drain_scene = preload("res://Scenes/drain.tscn")
 
-	var new_obj = drain_scene.instantiate()
+			new_obj = drain_scene.instantiate()
+			
 	get_node("../../map/Placed/surface").add_child(new_obj)
 	new_obj.global_position = pos
 	

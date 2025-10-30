@@ -16,8 +16,8 @@ func update_ui(money, month, tool, phase, flood):
 	match tool:
 		"drain":
 			tool_icon = $Control/right/inventory/Drain
-		"pipes":
-			tool_icon = $Control/right/inventory/Pipes
+		"pipe":
+			tool_icon = $Control/right/inventory/Pipe
 		"demolish":
 			tool_icon = $Control/right/inventory/Demolish
 		"upgrade":

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdcgobihmmqm0"
-path="res://.godot/imported/hammer.svg-780182bfe9072f1bc5029e45156c1a1b.ctex"
+uid="uid://t3w1nr4odc86"
+path="res://.godot/imported/drain.svg-431282f2db7aed6409ac337e4784d60a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/hammer.svg"
-dest_files=["res://.godot/imported/hammer.svg-780182bfe9072f1bc5029e45156c1a1b.ctex"]
+source_file="res://Sprites/drain.svg"
+dest_files=["res://.godot/imported/drain.svg-431282f2db7aed6409ac337e4784d60a.ctex"]
 
 [params]
 

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://5swy3skjnmlr"]
+
+[ext_resource type="FontFile" uid="uid://dpyup6ovibiry" path="res://Fonts/League_Spartan/static/LeagueSpartan-Bold.ttf" id="1_0gtv2"]
+[ext_resource type="Script" uid="uid://eos4dqpjy6mi" path="res://Scripts/showMessage.gd" id="1_wohpn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_otx46"]
+font = ExtResource("1_0gtv2")
+font_size = 25
+
+[node name="FloatNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -220.0
+offset_right = 20.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wohpn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "notification lolo lolol olol"
+label_settings = SubResource("LabelSettings_otx46")
+horizontal_alignment = 1
+vertical_alignment = 1
