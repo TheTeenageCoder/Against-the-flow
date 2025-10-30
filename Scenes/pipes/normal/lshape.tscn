@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://tefwni6033ko"]
+
+[ext_resource type="ArrayMesh" uid="uid://c7nowaycvav36" path="res://Models/Pipes/Pipe - L-shape.obj" id="1_vnlua"]
+
+[node name="lshape" type="MeshInstance3D"]
+mesh = ExtResource("1_vnlua")
+skeleton = NodePath("../cross")

@@ -22,7 +22,5 @@ func _on_button_pressed(button: String):
 				grid.visible = false
 			else:
 				grid.visible = true
-		"pipes":
-			pass
 		"fx":
 			pass

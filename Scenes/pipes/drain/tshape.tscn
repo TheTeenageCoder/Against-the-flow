@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://djdx1lx0pxcig"]
+
+[ext_resource type="ArrayMesh" uid="uid://bbrdc3d5sw7ij" path="res://Models/Pipes/Drain Pipe/Drain Pipe - T-shape.obj" id="1_4xaq4"]
+
+[node name="tshape" type="MeshInstance3D"]
+mesh = ExtResource("1_4xaq4")
+skeleton = NodePath("../cross")

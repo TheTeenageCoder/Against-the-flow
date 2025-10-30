@@ -2,8 +2,8 @@ extends Camera3D
 
 @export var move_speed := 10.0
 @export var zoom_speed := 5.0      # How fast the FOV changes
-@export var min_fov := 30.0        # Smallest zoom-in (narrow)
-@export var max_fov := 90.0        # Widest zoom-out
+@export var min_fov := 20.0        # Smallest zoom-in (narrow)
+@export var max_fov := 90        # Widest zoom-out
 
 var target_fov := 70.0             # Default zoom level
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpqrtb1hhwdtc"]
+
+[ext_resource type="ArrayMesh" uid="uid://buqfdskcg51v" path="res://Models/Pipes/Pipe - Straight.obj" id="1_7pjb8"]
+
+[node name="straight" type="MeshInstance3D"]
+mesh = ExtResource("1_7pjb8")

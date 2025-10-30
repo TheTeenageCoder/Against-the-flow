@@ -29,7 +29,10 @@ func format_number_abbreviated(number: int) -> String:
 
 	var precision = 1 if formatted_number < 10 else 0
 	
-	return polarity + str(formatted_number).format("%.{p}f").replace("{p}", str(precision)) + SUFFIXES[index]
+	var format_specifier = "%.{p}f".format({"p": precision})
+	var formatted_float_string = format_specifier % formatted_number
+	
+	return polarity + formatted_float_string + SUFFIXES[index]
 		
 func _on_button_pressed(panel_name: String):
 	panel_name = panel_name.to_lower()
@@ -43,7 +46,6 @@ func _on_button_pressed(panel_name: String):
 	details.get_node("level").text = "Level 1"
 	details.get_node("value").text = "₱ " + format_number_abbreviated(gameManager.objValues[panel_name])
 	
-	print("Button from panel: ", panel_name)
 	if gameManager.current_tool == panel_name:
 		gameManager.current_tool = "none"
 		
@@ -56,8 +58,9 @@ func _on_button_pressed(panel_name: String):
 		tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		
 		tween.tween_property(selectUI, "position", target_position, duration)
-	else:
+	else:	
 		if gameManager.current_tool == "none":
+			gameManager.current_tool = panel_name.to_lower()
 			var slide_distance = selectUI.size.x
 			var target_x = selectUI.position.x + slide_distance
 			var target_position = Vector2(target_x, selectUI.position.y)
@@ -68,6 +71,7 @@ func _on_button_pressed(panel_name: String):
 			
 			tween.tween_property(selectUI, "position", target_position, duration)
 		else:
+			gameManager.current_tool = panel_name.to_lower()
 			var slide_distance = selectUI.size.x
 			var target_x = selectUI.position.x - slide_distance
 			var target_position = Vector2(target_x, selectUI.position.y)
@@ -88,9 +92,6 @@ func _on_button_pressed(panel_name: String):
 			tween2.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 			
 			tween2.tween_property(selectUI, "position", target_position2, duration)
-			
-		gameManager.current_tool = panel_name.to_lower()
-		print("changed to" + panel_name.to_lower())
 		
 	gameManager._update_ui()
 	

@@ -1,7 +1,7 @@
 extends Panel
 
-const POP_DURATION = 0.095
-const STAGGER_TIME = 0.003
+const POP_DURATION = 0.2
+const STAGGER_TIME = 0.0001
 const GRID_MOVE_DURATION = 0.485
 const GRID_MOVE_AMOUNT = 0.2
 const MIN_SCALE = Vector3(0.001, 0.001, 0.001)
@@ -37,7 +37,9 @@ func _toggle_layer_animated():
 	if layer.visible == true:
 		label.text = "G1"
 		layerAssets.visible = false
-		placedSurface.visible = false
+		
+		for part in placedSurface.get_children():
+			part.transparency = 0.7
 		
 		total_stagger_time = _start_staggered_animation(
 			nodes_to_animate, Vector3(1,0.2,1), MIN_SCALE, POP_DURATION, false
@@ -53,7 +55,6 @@ func _toggle_layer_animated():
 		label.text = "L1"
 		layer.visible = true
 
-			
 		total_stagger_time = _start_staggered_animation(
 			nodes_to_animate, MIN_SCALE, Vector3(1,0.2,1), POP_DURATION, true
 		)
@@ -64,7 +65,8 @@ func _toggle_layer_animated():
 		await grid_tween.finished
 		
 		layerAssets.visible = true
-		placedSurface.visible = true
+		for part in placedSurface.get_children():
+			part.transparency = 0
 	
 	is_animating = false
 

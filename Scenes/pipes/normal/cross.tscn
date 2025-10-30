@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvcc6qhha02ya"]
+
+[ext_resource type="ArrayMesh" uid="uid://bsc2b8ohotrh5" path="res://Models/Pipes/Pipe - Cross.obj" id="1_16hqt"]
+
+[node name="cross" type="MeshInstance3D"]
+mesh = ExtResource("1_16hqt")

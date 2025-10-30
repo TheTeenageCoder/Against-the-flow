@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode unshaded, blend_mix, depth_draw_always, cull_disabled, fog_disabled;
 
 uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 0.2);
-uniform float grid_size = 0.1; // 1 unit per cube grid
+uniform float grid_size = 0.01; // 1 unit per cube grid
 
 void fragment() {
     // UV repeats to create the grid pattern
@@ -12,7 +12,7 @@ void fragment() {
     float line = clamp(line_x + line_y, 0.0, 1.0);
 
     vec4 color = line_color;
-    color.a *= line; // Make grid lines visible only
+    color.a *= line;
     ALBEDO = color.rgb;
     ALPHA = color.a;
 }
