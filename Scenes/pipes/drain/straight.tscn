@@ -1,7 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctaoi4n12bykc"]
+[gd_scene load_steps=3 format=3 uid="uid://ctaoi4n12bykc"]
 
 [ext_resource type="ArrayMesh" uid="uid://drmdjlwcunn3j" path="res://Models/Pipes/Drain Pipe/Drain Pipe - Straight.obj" id="1_ak7mj"]
 
-[node name="straight" type="MeshInstance3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1mi2w"]
+size = Vector3(0.38223267, 0.28564453, 0.11706543)
+
+[node name="straight" type="Node3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_ak7mj")
-skeleton = NodePath("../cross")
+
+[node name="shapeA" type="Area3D" parent="."]
+
+[node name="shapeA" type="CollisionShape3D" parent="shapeA"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0.07769799, 0)
+shape = SubResource("BoxShape3D_1mi2w")
+
+[node name="shapeB" type="Area3D" parent="."]
+
+[node name="shapeB" type="CollisionShape3D" parent="shapeB"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0.07769799, 0)
+shape = SubResource("BoxShape3D_1mi2w")

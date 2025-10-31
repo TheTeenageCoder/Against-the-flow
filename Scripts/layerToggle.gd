@@ -3,7 +3,7 @@ extends Panel
 const POP_DURATION = 0.2
 const STAGGER_TIME = 0.0001
 const GRID_MOVE_DURATION = 0.485
-const GRID_MOVE_AMOUNT = 0.2
+const GRID_MOVE_AMOUNT = 0.4
 const MIN_SCALE = Vector3(0.001, 0.001, 0.001)
 
 var is_animating = false
@@ -56,7 +56,7 @@ func _toggle_layer_animated():
 		layer.visible = true
 
 		total_stagger_time = _start_staggered_animation(
-			nodes_to_animate, MIN_SCALE, Vector3(1,0.2,1), POP_DURATION, true
+			nodes_to_animate, MIN_SCALE, Vector3(1,0.4,1), POP_DURATION, true
 		)
 		
 		grid_tween.tween_property(grid, "position", grid.position + Vector3(0, GRID_MOVE_AMOUNT, 0), GRID_MOVE_DURATION)

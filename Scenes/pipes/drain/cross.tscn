@@ -1,7 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbk77dm5g34sf"]
+[gd_scene load_steps=3 format=3 uid="uid://dbk77dm5g34sf"]
 
 [ext_resource type="ArrayMesh" uid="uid://diqkkyry7cfpu" path="res://Models/Pipes/Drain Pipe/Drain Pipe - Cross.obj" id="1_uqxjp"]
 
-[node name="cross" type="MeshInstance3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1mi2w"]
+size = Vector3(0.38223267, 0.28564453, 0.11706543)
+
+[node name="cross" type="Node3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_uqxjp")
-skeleton = NodePath("../cross")
+
+[node name="shapeA" type="Area3D" parent="."]
+
+[node name="shapeA" type="CollisionShape3D" parent="shapeA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0037994385, 0.09991479, 0.48980713)
+shape = SubResource("BoxShape3D_1mi2w")
+
+[node name="shapeB" type="Area3D" parent="."]
+
+[node name="shapeB" type="CollisionShape3D" parent="shapeB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07769799, -0.5)
+shape = SubResource("BoxShape3D_1mi2w")
+
+[node name="shapeC" type="Area3D" parent="."]
+
+[node name="shapeC" type="CollisionShape3D" parent="shapeC"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0.07769799, 0)
+shape = SubResource("BoxShape3D_1mi2w")
+
+[node name="shapeD" type="Area3D" parent="."]
+
+[node name="shapeD" type="CollisionShape3D" parent="shapeD"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0.07769799, 0)
+shape = SubResource("BoxShape3D_1mi2w")

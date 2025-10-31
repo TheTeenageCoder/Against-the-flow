@@ -4,7 +4,7 @@ extends Node
 @onready var notif = get_node("../UI/notifManager")
 
 # === Player Data ===
-var money := 3000000:
+var money := 50000000:
 	set(value):
 		var polarity = "-" if money > value else "+"
 		var text = polarity + "₱" + str(money-value)

@@ -14,6 +14,7 @@ var ghost: Node3D
 var orientation = Vector3(0,0,0)
 
 func update_obj(tool):
+	var pipes = ["straight", "cross", "tshape", "lshape", "open"]
 	match tool:
 		"drain":
 			ghost_scene = load("res://Scenes/drain.tscn")
@@ -34,7 +35,15 @@ func update_obj(tool):
 		
 	if ghost_scene != null:
 		ghost = ghost_scene.instantiate()
-		ghost.transparency = 0.8
+		if tool == "drain":
+			ghost.transparency = 0.8
+		elif pipes.has(tool):
+			ghost.get_node("mesh").transparency = 0.8
+			for p in ghost.get_children():
+				if p is Area3D:
+					p.monitoring = false
+					p.monitorable = false
+
 		add_child(ghost)
 	
 	orientation = Vector3(0,0,0)
@@ -42,6 +51,8 @@ func update_obj(tool):
 func _ready():
 	if camera == null:
 		camera = get_viewport().get_camera_3d()
+		
+	$"../../map/Placed".check_connection()
 		
 	update_obj(gameManager.current_tool)
 	
@@ -151,17 +162,29 @@ func place_obj(tool, pos):
 			
 			var placed_objects = get_node("../../map/Placed/under")
 			var posUnder = Vector3(pos.x, -0.02437, pos.z)
-	
+			
 			for child in placed_objects.get_children():
-				if child is MeshInstance3D: 
+				if child is Node3D: 
 					if child.global_position.is_equal_approx(posUnder):
-						var replaced = load("res://Scenes/pipes/drain/" + child.name + ".tscn").instantiate()
+						var objName 
+						match child.get_node("mesh").mesh.resource_path:
+							"res://Models/Pipes/Pipe - Cross.obj":
+								objName = "cross"
+							"res://Models/Pipes/Pipe - Straight.obj":
+								objName = 'straight'
+							"res://Models/Pipes/Pipe - T-shape.obj":
+								objName = "tshape"
+							"res://Models/Pipes/Pipe - L-shape.obj":
+								objName = "lshape"
+						
+									
+						var replaced = load("res://Scenes/pipes/drain/" + objName + ".tscn").instantiate()
 						placed_objects.add_child(replaced)
 
 						replaced.global_position = posUnder - Vector3(0,0.075,0)
+						replaced.rotation = child.rotation
 						child.queue_free()
-						
-						
+
 		"pipe":
 			notif.notify("Select the type of pipe first", Color.RED)
 			return
@@ -246,16 +269,21 @@ func place_obj(tool, pos):
 	if tool == "drain":
 		new_obj.global_position = pos
 		finalScale = Vector3(0.01, 0.01, 0.01)
+		#new_obj.transparency = 0.5
 	elif pipes.has(tool):
 		new_obj.global_position = pos-Vector3(0,0.425,0)
 		finalScale = Vector3.ONE
-		print(new_obj.global_position)
-	
+		#new_obj.get_node("mesh").transparency = 0.5
 	if pipes.has(tool) and pipe_scene.resource_path.contains("res://Scenes/pipes/drain/"):
 		new_obj.global_position = pos-Vector3(0,0.5,0)
 		finalScale = Vector3.ONE
+		
 	
 	new_obj.rotation = orientation
 		
-	tween.tween_property(new_obj, "scale", finalScale , 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(new_obj, "scale", finalScale , 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	occupy_tile()
+	await tween.finished
+
+	$"../../map/Placed".check_connection()
+	

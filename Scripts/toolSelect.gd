@@ -84,7 +84,6 @@ func _on_button_pressed(panel_name: String):
 			
 			await tween.finished
 			
-			print("going back")
 			var target_x2 = selectUI.position.x + slide_distance
 			var target_position2 = Vector2(target_x2, selectUI.position.y)
 			
@@ -94,4 +93,5 @@ func _on_button_pressed(panel_name: String):
 			tween2.tween_property(selectUI, "position", target_position2, duration)
 		
 	gameManager._update_ui()
+	
 	
