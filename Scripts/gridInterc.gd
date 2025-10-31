@@ -11,6 +11,8 @@ extends Node3D
 var grid_pos
 var ghost: Node3D
 
+var orientation = Vector3(0,0,0)
+
 func update_obj(tool):
 	match tool:
 		"drain":
@@ -34,6 +36,8 @@ func update_obj(tool):
 		ghost = ghost_scene.instantiate()
 		ghost.transparency = 0.8
 		add_child(ghost)
+	
+	orientation = Vector3(0,0,0)
 
 func _ready():
 	if camera == null:
@@ -54,6 +58,8 @@ func _process(_delta):
 	var result = space_state.intersect_ray(query)
 
 	if result and gameManager.current_tool != "none" and gameManager.current_tool != "pipe":
+		if Input.is_action_just_released("rotate"): 
+			orientation += Vector3(0, deg_to_rad(90), 0)
 		var normal: Vector3 = result.normal
 
 		if normal.y > 0.7:
@@ -70,8 +76,7 @@ func _process(_delta):
 
 			ghost.visible = true
 			ghost.global_position = grid_pos
-			var is_occupied = is_tile_occupied()
-			ghost.visible = true
+			#var is_occupied = is_tile_occupied()
 
 			#var style = StandardMaterial3D.new()
 			#if is_occupied:
@@ -82,6 +87,7 @@ func _process(_delta):
 		#	ghost.set_surface_override_material(0, style)
 
 			ghost.global_position = grid_pos
+			ghost.rotation = orientation
 			var pipes = ["straight", "cross", "tshape", "lshape", "open"]
 			if pipes.has(gameManager.current_tool):
 				ghost.position.y -= 0.425
@@ -248,6 +254,8 @@ func place_obj(tool, pos):
 	if pipes.has(tool) and pipe_scene.resource_path.contains("res://Scenes/pipes/drain/"):
 		new_obj.global_position = pos-Vector3(0,0.5,0)
 		finalScale = Vector3.ONE
+	
+	new_obj.rotation = orientation
 		
 	tween.tween_property(new_obj, "scale", finalScale , 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	occupy_tile()
