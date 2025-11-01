@@ -46,6 +46,15 @@ func _on_button_pressed(panel_name: String):
 	details.get_node("level").text = "Level 1"
 	details.get_node("value").text = "₱ " + format_number_abbreviated(gameManager.objValues[panel_name])
 	
+	if panel_name == "demolish":
+		details.get_node("name").text = panel_name.to_upper()
+		details.get_node("level").text = "Demolish \nassets"
+		details.get_node("value").text = "80%" 
+	elif panel_name == "upgrade":
+		details.get_node("name").text = panel_name.to_upper()
+		details.get_node("level").text = "Upgrade \nassets"
+		details.get_node("value").text = "₱?" 
+	
 	if gameManager.current_tool == panel_name:
 		gameManager.current_tool = "none"
 		

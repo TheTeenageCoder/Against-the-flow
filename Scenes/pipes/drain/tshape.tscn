@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://djdx1lx0pxcig"]
+[gd_scene load_steps=4 format=3 uid="uid://djdx1lx0pxcig"]
 
 [ext_resource type="ArrayMesh" uid="uid://bbrdc3d5sw7ij" path="res://Models/Pipes/Drain Pipe/Drain Pipe - T-shape.obj" id="1_4xaq4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xaq4"]
+size = Vector3(0.8, 0.2, 0.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1mi2w"]
 size = Vector3(0.38223267, 0.28564453, 0.11706543)
@@ -10,19 +13,34 @@ size = Vector3(0.38223267, 0.28564453, 0.11706543)
 [node name="mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_4xaq4")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032653809, 0, -0.11633301)
+shape = SubResource("BoxShape3D_4xaq4")
+
 [node name="shapeB" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="shapeB" type="CollisionShape3D" parent="shapeB"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07769799, -0.5)
 shape = SubResource("BoxShape3D_1mi2w")
 
 [node name="shapeC" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="shapeC" type="CollisionShape3D" parent="shapeC"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0.07769799, 0)
 shape = SubResource("BoxShape3D_1mi2w")
 
 [node name="shapeA" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="shapeA" type="CollisionShape3D" parent="shapeA"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0.07769799, 0)

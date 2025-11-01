@@ -33,7 +33,6 @@ func update_ui(money, month, tool, phase, flood):
 		"lshape":
 			tool_icon = $Control/rightPipes/selection/lshape
 
-
 	#reset
 	for panel in get_node("Control/right/inventory").get_children():
 		var tool_style = panel.get_theme_stylebox("panel").duplicate()

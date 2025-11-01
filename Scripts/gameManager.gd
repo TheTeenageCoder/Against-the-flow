@@ -7,16 +7,26 @@ extends Node
 var money := 50000000:
 	set(value):
 		var polarity = "-" if money > value else "+"
-		var text = polarity + "₱" + str(money-value)
+		var text = polarity + "₱" + str(abs(money-value))
 		var color = Color(1.0, 0.0, 0.0, 1.0) if money > value else Color(0.0, 1.0, 0.0, 1.0)
 		notif.notify(text, color)
 		money = value
+		_update_ui()
 var level := 1
 var current_tool := "none":
 	set(value):
 		current_tool = value
 		gridInterc.update_obj(value)
-			
+		_update_ui()
+		
+var upgradedDrains := []
+var drainUpraded := 2
+
+var pipesUpgraded := false
+var pipesUpgradedvalue := 2
+
+var pipe_level := 1
+
 # === Time ===
 var current_month := 1
 var max_months := 2
@@ -38,9 +48,11 @@ var total_drains := 0
 var working_drains := 0
 var broken_drains := []
 
-var objValues = {
+var objValues := {
 	"drain": 300000,
-	"pipe": 500000
+	"pipe": 500000,
+	"demolish": 0,
+	"upgrade": 0
 }
 
 # === Events ===
