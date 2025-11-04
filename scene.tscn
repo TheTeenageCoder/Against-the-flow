@@ -1,8 +1,9 @@
-[gd_scene load_steps=68 format=3 uid="uid://o2tk3jns8edl"]
+[gd_scene load_steps=74 format=3 uid="uid://o2tk3jns8edl"]
 
 [ext_resource type="Script" uid="uid://dkr855jqjki0g" path="res://Scripts/camera.gd" id="1_iss77"]
 [ext_resource type="Script" uid="uid://bsqmkn30nnc3l" path="res://Scripts/gridInterc.gd" id="1_nxogm"]
 [ext_resource type="PackedScene" uid="uid://nyx6q6otoxw2" path="res://Scenes/maps/map1.tscn" id="2_yjo7n"]
+[ext_resource type="Script" uid="uid://d2284qwsrivjt" path="res://Scripts/buttonSound.gd" id="4_jrtx1"]
 [ext_resource type="Script" uid="uid://b5f2vr8q7vbyh" path="res://Scripts/UI.gd" id="6_g6g5t"]
 [ext_resource type="Texture2D" uid="uid://bkxkj0quyql2c" path="res://Sprites/Sun.svg" id="6_y2354"]
 [ext_resource type="FontFile" uid="uid://brqom5875s7v4" path="res://Fonts/League_Spartan/static/LeagueSpartan-SemiBold.ttf" id="7_5juve"]
@@ -35,7 +36,12 @@
 [ext_resource type="Texture2D" uid="uid://cgsgod3njpxy5" path="res://Sprites/Characters/ALONA.PNG" id="31_nb0s3"]
 [ext_resource type="Texture2D" uid="uid://7r23gnlbv78b" path="res://Sprites/arrowSelect.svg" id="32_iloo5"]
 [ext_resource type="Texture2D" uid="uid://dy8hjgwecikaw" path="res://Sprites/caution.svg" id="33_g4bmd"]
+[ext_resource type="AudioStream" uid="uid://mcref7i4xbqr" path="res://Sounds/Text.mp3" id="33_x5hgh"]
+[ext_resource type="AudioStream" uid="uid://b1j6damr72qc7" path="res://Sounds/Light Rain.mp3" id="34_7842m"]
+[ext_resource type="AudioStream" uid="uid://g7i55l5p2exe" path="res://Sounds/Medium Rain.mp3" id="35_jrtx1"]
 [ext_resource type="AudioStream" uid="uid://dyiuqtjdssbx" path="res://Sounds/One Man Symphony - Downtempo & Lofi & Progressive Music Pack Vol - 1 (Free) - 05 Cozy.mp3" id="35_nb0s3"]
+[ext_resource type="AudioStream" uid="uid://bosfqwctjg3rn" path="res://Sounds/Button Click.mp3" id="35_p7oqj"]
+[ext_resource type="AudioStream" uid="uid://dsbo547s2kr8a" path="res://Sounds/Heavy Rain.mp3" id="36_p7oqj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni31j"]
 bg_color = Color(18.892157, 18.892157, 0, 1)
@@ -245,6 +251,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("4_jrtx1")
 
 [node name="topLeft" type="HBoxContainer" parent="UI/Control"]
 custom_minimum_size = Vector2(0, 120)
@@ -878,6 +885,7 @@ expand_mode = 1
 layout_mode = 1
 
 [node name="Dialouge" type="Control" parent="UI/Control"]
+visible = false
 custom_minimum_size = Vector2(1500, 250)
 layout_mode = 1
 anchors_preset = 8
@@ -891,6 +899,7 @@ offset_right = 791.0
 offset_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Control/Dialouge"]
 layout_mode = 1
@@ -930,7 +939,6 @@ offset_left = 80.0
 offset_top = 25.0
 offset_right = 1339.0
 offset_bottom = 173.0
-text = "Okay, so… First, things first, I need to place drains around the city."
 label_settings = SubResource("LabelSettings_hyak3")
 autowrap_mode = 3
 
@@ -950,8 +958,31 @@ offset_left = 1800.0
 offset_top = 395.0
 offset_right = 1850.0
 offset_bottom = 445.0
+mouse_filter = 2
 texture = ExtResource("32_iloo5")
 expand_mode = 1
+
+[node name="typing_sound" type="AudioStreamPlayer" parent="UI/Control"]
+stream = ExtResource("33_x5hgh")
+volume_db = -15.797
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="UI/Control"]
+stream = ExtResource("35_p7oqj")
+volume_db = -13.165
+
+[node name="toolSFX" type="AudioStreamPlayer" parent="UI/Control"]
+
+[node name="rain" type="AudioStreamPlayer" parent="UI/Control"]
+stream = ExtResource("34_7842m")
+parameters/looping = false
+
+[node name="rain2" type="AudioStreamPlayer" parent="UI/Control"]
+stream = ExtResource("35_jrtx1")
+parameters/looping = false
+
+[node name="rain3" type="AudioStreamPlayer" parent="UI/Control"]
+stream = ExtResource("36_p7oqj")
+parameters/looping = false
 
 [node name="notifManager" type="Node" parent="UI"]
 script = ExtResource("28_m514l")
@@ -972,7 +1003,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
 [node name="GameManager" type="Node" parent="."]

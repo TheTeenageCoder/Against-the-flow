@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xislhlw5mp38"
+path="res://.godot/imported/Cannot Place.mp3-4cb07dda85f857b7126489e481d9d8c2.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Cannot Place.mp3"
+dest_files=["res://.godot/imported/Cannot Place.mp3-4cb07dda85f857b7126489e481d9d8c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

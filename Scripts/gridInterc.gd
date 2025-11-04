@@ -5,8 +5,8 @@ extends Node3D
 
 @onready var map = $"../../map"
 @onready var gameManager = get_node("..")
-
 @onready var layer1 = $"../../map/Layer0"
+@onready var toolSFX = $"../../UI/Control/toolSFX"
 
 var grid_pos
 var ghost: Node3D
@@ -127,7 +127,7 @@ func _process(_delta):
 		has_duplicated = false
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and gameManager.current_tool != "none":
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and gameManager.current_tool != "none" and gameManager.current_tool != "pipe":
 		if not gameManager.in_dialouge:
 			place_obj(gameManager.current_tool, grid_pos)
 			
@@ -151,16 +151,24 @@ func free_tile(tile = str(grid_pos)):
 func place_obj(tool, pos: Vector3):
 	if is_tile_occupied():
 		if tool != "demolish":
-			print("Tile already occupied!")
+			notif.notify("Tile already occupied", Color.RED)
+			toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+			toolSFX.play()
 			return
 			
 	var posV2 = Vector2(pos.x, pos.z)
-	for part in get_node("../../map/Assets").get_children():
-		var partGPV2 = Vector2(part.global_position.x, part.global_position.z)
-		if posV2 == partGPV2:
-			gameManager.dialougeIndex += 1
-			print("From Invalid placing: " + str(gameManager.dialougeIndex))
-			return
+	if layer1.visible == true:
+		for part in get_node("../../map/Assets").get_children():
+			var partGPV2 = Vector2(part.global_position.x, part.global_position.z)
+			if posV2 == partGPV2:
+				notif.notify("Tile contains an object", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
+				if gameManager.needInvalidDialouge:
+					gameManager.dialougeIndex += 1
+					print("From Invalid placing: " + str(gameManager.dialougeIndex))
+					gameManager.needInvalidDialouge = false
+				return
 		
 	var new_obj
 	var pipes = ["straight", "cross", "tshape", "lshape"]
@@ -174,6 +182,8 @@ func place_obj(tool, pos: Vector3):
 		"drain":
 			if layer1.visible == false:
 				notif.notify("Object can only be placed on the surface", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
 				return
 				
 			if gameManager.money < gameManager.objValues.drain:
@@ -224,13 +234,18 @@ func place_obj(tool, pos: Vector3):
 
 						replaced.global_position = posUnder - Vector3(0,0.075,0)
 						replaced.rotation = child.rotation
+						replaced.visible = false
 						child.queue_free()
 		"pipe":
 			notif.notify("Select the type of pipe first", Color.RED)
+			toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+			toolSFX.play()
 			return
 		"straight":
 			if layer1.visible == true:
 				notif.notify("Object can only be placed underground", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
 				return
 				
 			if gameManager.money < gameManager.objValues.pipe:
@@ -245,6 +260,8 @@ func place_obj(tool, pos: Vector3):
 		"cross":
 			if layer1.visible == true:
 				notif.notify("Object can only be placed underground", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
 				return
 			
 			if gameManager.money < gameManager.objValues.pipe:
@@ -259,6 +276,8 @@ func place_obj(tool, pos: Vector3):
 		"tshape":
 			if layer1.visible == true:
 				notif.notify("Object can only be placed underground", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
 				return
 				
 			if gameManager.money < gameManager.objValues.pipe:
@@ -274,6 +293,8 @@ func place_obj(tool, pos: Vector3):
 		"lshape":
 			if layer1.visible == true:
 				notif.notify("Object can only be placed underground", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
 				return
 				
 			if gameManager.money < gameManager.objValues.pipe:
@@ -290,6 +311,8 @@ func place_obj(tool, pos: Vector3):
 			var bodies = area.get_overlapping_bodies()
 			if bodies.is_empty():
 				notif.notify("Hover over an object", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
 				return
 
 			var target = bodies[0]
@@ -317,12 +340,16 @@ func place_obj(tool, pos: Vector3):
 				tween.tween_property(current, "scale", Vector3.ZERO, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 				tween.tween_callback(Callable(current, "queue_free"))
 				
+				toolSFX.stream = load("res://Sounds/Demolish.mp3")
+				toolSFX.play()
+				
 				if gameManager.needDemolishDialouge:
 					gameManager.dialougeIndex += 1
 					print("From demolish: " + str(gameManager.dialougeIndex))
 					gameManager.needDemolishDialouge = false
 			else:
 				print("Could not find root for:", target.name)
+
 			return
 		"upgrade":
 			if layer1.visible == true:
@@ -351,8 +378,13 @@ func place_obj(tool, pos: Vector3):
 						print("Could not find root for:", target.name)
 						
 					gameManager.upgradedDrains.append(Vector2(pos.x, pos.z))
+					gameManager.money -= gameManager.objValues.drain*1.1
 			else:
-				print($"../ghostDupes".get_children().size())
+				if gameManager.pipesUpgraded:
+					notif.notify("Pipes are already upgraded", Color.RED)
+					toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+					toolSFX.play()
+					return
 				for part in $"../ghostDupes".get_children():
 					print(part)
 					var area = part.get_node("Area3D")
@@ -360,6 +392,8 @@ func place_obj(tool, pos: Vector3):
 					print(bodies)
 					if bodies.is_empty():
 						notif.notify("Hover over an object", Color.RED)
+						toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+						toolSFX.play()
 						return
 						
 					var target = bodies[0]
@@ -385,6 +419,7 @@ func place_obj(tool, pos: Vector3):
 								newMesh = load("res://Models/Pipes/Upgraded Pipe - "+meshType+".obj")
 							
 							current.get_node("mesh").mesh = newMesh
+							gameManager.money -= (bodies.size()+1)*gameManager.objValues["pipe"]+1000000
 					else:
 						print("Could not find root for:", target.name)
 						
@@ -392,8 +427,12 @@ func place_obj(tool, pos: Vector3):
 				print("From upgrade: " + str(gameManager.dialougeIndex))
 				gameManager.pipesUpgraded = true
 				gameManager.objValues.pipe *= 2
+			toolSFX.stream = load("res://Sounds/Demolish.mp3")
+			toolSFX.play()
 			return
 
+	toolSFX.stream = load("res://Sounds/Place Down.mp3")
+	toolSFX.play()
 	var posText = str(Vector3(pos.x, 0.305, pos.z))
 		
 	if occupied_tiles.has(posText):

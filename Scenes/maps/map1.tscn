@@ -2780,8 +2780,264 @@ surface_material_override/0 = SubResource("ShaderMaterial_m7jmp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.3, -6)
 visible = false
 
+[node name="Building 14" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.3, -6)
+visible = false
+
+[node name="Building 15" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.3, -8)
+visible = false
+
+[node name="Building 16" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.3, -8)
+visible = false
+
+[node name="Building 17" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.3, -3)
+visible = false
+
+[node name="Building 18" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.3, -3)
+visible = false
+
+[node name="Building 19" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.3, -1)
+visible = false
+
+[node name="Building 20" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.3, -1)
+visible = false
+
 [node name="Building 13" parent="Assets" instance=ExtResource("4_qva1w")]
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 4, 0.3, -1)
+visible = false
+
+[node name="Building 21" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 2, 0.3, -1)
+visible = false
+
+[node name="Building 22" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 4, 0.3, -4)
+visible = false
+
+[node name="Building 23" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 2, 0.3, -4)
+visible = false
+
+[node name="Building 24" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 3, 0.3, -6)
+visible = false
+
+[node name="Building 25" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 3, 0.3, -8)
+visible = false
+
+[node name="Building 26" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.3, -8)
+visible = false
+
+[node name="Building 27" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.3, -6)
+visible = false
+
+[node name="Building 28" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.3, -3)
+visible = false
+
+[node name="Building 29" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.3, -1)
+visible = false
+
+[node name="Building 30" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, 0.3, -2)
+visible = false
+
+[node name="Building 31" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, 0.3, -4)
+visible = false
+
+[node name="Building 32" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, 0.3, -6)
+visible = false
+
+[node name="Building 33" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, 0.3, -8)
+visible = false
+
+[node name="Building 34" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, 0.3, -9)
+visible = false
+
+[node name="Building 35" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -9)
+visible = false
+
+[node name="Building 36" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 7, 0.3, -9)
+visible = false
+
+[node name="Building 37" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 6, 0.3, -9)
+visible = false
+
+[node name="Building 38" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -9)
+visible = false
+
+[node name="Building 39" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 4, 0.3, -9)
+visible = false
+
+[node name="Building 40" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 3, 0.3, -9)
+visible = false
+
+[node name="Building 41" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 2, 0.3, -9)
+visible = false
+
+[node name="Building 42" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -9)
+visible = false
+
+[node name="Building 43" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.3, -9)
+visible = false
+
+[node name="Building 44" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, 0.3, 0)
+visible = false
+
+[node name="Building 45" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, 0)
+visible = false
+
+[node name="Building 46" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 7, 0.3, 0)
+visible = false
+
+[node name="Building 47" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 6, 0.3, 0)
+visible = false
+
+[node name="Building 48" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, 0)
+visible = false
+
+[node name="Building 49" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 4, 0.3, 0)
+visible = false
+
+[node name="Building 50" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 3, 0.3, 0)
+visible = false
+
+[node name="Building 51" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 2, 0.3, 0)
+visible = false
+
+[node name="Building 52" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, 0)
+visible = false
+
+[node name="Building 54" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -1)
+visible = false
+
+[node name="Building 55" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -2)
+visible = false
+
+[node name="Building 56" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -3)
+visible = false
+
+[node name="Building 57" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -4)
+visible = false
+
+[node name="Building 58" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -5)
+visible = false
+
+[node name="Building 59" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -6)
+visible = false
+
+[node name="Building 60" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -7)
+visible = false
+
+[node name="Building 61" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, 0.3, -8)
+visible = false
+
+[node name="Building 62" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -1)
+visible = false
+
+[node name="Building 63" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -2)
+visible = false
+
+[node name="Building 64" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -3)
+visible = false
+
+[node name="Building 65" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -4)
+visible = false
+
+[node name="Building 66" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -5)
+visible = false
+
+[node name="Building 67" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -6)
+visible = false
+
+[node name="Building 68" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -7)
+visible = false
+
+[node name="Building 69" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, 0.3, -8)
+visible = false
+
+[node name="Building 70" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -1)
+visible = false
+
+[node name="Building 71" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -2)
+visible = false
+
+[node name="Building 72" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -3)
+visible = false
+
+[node name="Building 73" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -4)
+visible = false
+
+[node name="Building 74" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -5)
+visible = false
+
+[node name="Building 75" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -6)
+visible = false
+
+[node name="Building 76" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -7)
+visible = false
+
+[node name="Building 77" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 8, 0.3, -8)
+visible = false
+
+[node name="Building 53" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.3, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Assets"]

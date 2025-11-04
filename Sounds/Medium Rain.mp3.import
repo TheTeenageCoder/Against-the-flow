@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g7i55l5p2exe"
+path="res://.godot/imported/Medium Rain.mp3-299ad2372d7f92f6e3d46b76111ac50d.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Medium Rain.mp3"
+dest_files=["res://.godot/imported/Medium Rain.mp3-299ad2372d7f92f6e3d46b76111ac50d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

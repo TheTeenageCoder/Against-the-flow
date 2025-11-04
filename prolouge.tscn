@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://i46uftgnw8s7"]
+[gd_scene load_steps=12 format=3 uid="uid://i46uftgnw8s7"]
 
 [ext_resource type="Script" uid="uid://dc0r82kmwo5tk" path="res://Scripts/prolouge.gd" id="1_u63lq"]
 [ext_resource type="Texture2D" uid="uid://bgvs7nkj8m0v4" path="res://Cutscenes/contract.PNG" id="2_psb7e"]
 [ext_resource type="FontFile" uid="uid://dpyup6ovibiry" path="res://Fonts/League_Spartan/static/LeagueSpartan-Bold.ttf" id="3_6484v"]
 [ext_resource type="Texture2D" uid="uid://cgsgod3njpxy5" path="res://Sprites/Characters/ALONA.PNG" id="4_lx2lb"]
+[ext_resource type="AudioStream" uid="uid://bosfqwctjg3rn" path="res://Sounds/Button Click.mp3" id="5_lx2lb"]
+[ext_resource type="AudioStream" uid="uid://mcref7i4xbqr" path="res://Sounds/Text.mp3" id="6_2pt07"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pt07"]
 bg_color = Color(0, 0, 0, 0.54509807)
@@ -109,3 +111,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lx2lb")
+
+[node name="typing_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2pt07")
+volume_db = -15.797

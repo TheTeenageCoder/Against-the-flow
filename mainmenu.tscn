@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://vdn5kvdkormh"]
+[gd_scene load_steps=34 format=3 uid="uid://vdn5kvdkormh"]
 
 [ext_resource type="Script" uid="uid://ctib7y1ryla0m" path="res://Scripts/mainmenu.gd" id="1_3pujl"]
 [ext_resource type="Texture2D" uid="uid://btcg4eijgno7x" path="res://Sprites/mainmenu.PNG" id="1_cmhrf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b64m51dmpr5lw" path="res://Scripts/mSlider.gd" id="8_rqglp"]
 [ext_resource type="Script" uid="uid://bju2y2bviyjaw" path="res://Scripts/bSlider.gd" id="9_0y70q"]
 [ext_resource type="Script" uid="uid://cen6gw1eicypb" path="res://rich_text_label.gd" id="10_0y70q"]
+[ext_resource type="AudioStream" uid="uid://bosfqwctjg3rn" path="res://Sounds/Button Click.mp3" id="11_qrn07"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pujl"]
 
@@ -184,32 +185,6 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qrn07")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qy7ti")
 text = "Exit Game"
 alignment = 0
-
-[node name="Leaderboard" type="Button" parent="."]
-offset_left = 72.0
-offset_top = 64.0
-offset_right = 280.0
-offset_bottom = 128.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_igs2m")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_3pujl")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rqglp")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0y70q")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_igs2m")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qrn07")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qy7ti")
-text = "Leaderboard"
-icon = ExtResource("4_qrn07")
-alignment = 0
-expand_icon = true
 
 [node name="Title" type="Label" parent="."]
 offset_left = 1064.0
@@ -451,6 +426,35 @@ preprocess = 0.5
 randomness = 0.11
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_wgsso")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_qrn07")
+
+[node name="Leaderboard" type="Button" parent="."]
+offset_left = 72.0
+offset_top = 64.0
+offset_right = 280.0
+offset_bottom = 128.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_igs2m")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3pujl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rqglp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0y70q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_igs2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qrn07")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qy7ti")
+text = "Leaderboard"
+icon = ExtResource("4_qrn07")
+alignment = 0
+expand_icon = true
 
 [connection signal="pressed" from="Options2/Back2" to="Options2/Back2" method="_on_pressed"]
 [connection signal="pressed" from="Credits2/Back2" to="Credits2/Back2" method="_on_pressed"]

@@ -10,6 +10,7 @@ extends Node2D
 @onready var leaderboard: Button = $Leaderboard
 @onready var bg: TextureRect = $Background
 @onready var fx: GPUParticles2D = $GPUParticles2D
+@onready var click_sound: AudioStreamPlayer = $ClickSound  # <-- Add this in your scene
 
 func _ready() -> void:
 	_setup_button(start, Callable(self, "_on_start_pressed"))
@@ -18,7 +19,7 @@ func _ready() -> void:
 	_setup_button(exit, Callable(self, "_on_exit_pressed"))
 	_setup_button(leaderboard, Callable(self, "_on_leaderboard_pressed"))
 
-# --- Setup each button with hover and click connections ---
+# --- Setup each button with hover, click, and sound connections ---
 func _setup_button(button: Button, callback: Callable) -> void:
 	if not button:
 		return
@@ -26,6 +27,7 @@ func _setup_button(button: Button, callback: Callable) -> void:
 	button.connect("mouse_entered", Callable(self, "_on_button_hovered").bind(button))
 	button.connect("mouse_exited", Callable(self, "_on_button_unhovered").bind(button))
 	button.connect("pressed", callback)
+	button.connect("pressed", Callable(self, "_on_any_button_pressed"))  # <-- Add sound trigger
 
 # --- Tween utility ---
 func start_tween(object: Object, property: String, final_val: Variant, duration: float) -> void:
@@ -50,6 +52,11 @@ func _on_button_unhovered(button: Button) -> void:
 	if button == exit:
 		fx.visible = false
 		start_tween(bg, "modulate", Color.WHITE, tween_duration + 0.5)
+
+# --- Universal click sound ---
+func _on_any_button_pressed() -> void:
+	if click_sound:
+		click_sound.play()
 
 # --- Button pressed handlers ---
 func _on_start_pressed() -> void:
