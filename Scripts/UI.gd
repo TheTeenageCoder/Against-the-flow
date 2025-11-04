@@ -7,11 +7,17 @@ extends CanvasLayer
 @onready var pipeSelection = get_node("Control/rightPipes")
 @onready var phase_panel = $Control/topLeft/Phase
 @onready var phase_icon = $Control/topLeft/Phase/TextureRect
-@onready var flood_bar = $Control/ProgressBar
+#@onready var flood_bar = $Control/ProgressBar
 
-func update_ui(money, month, tool, phase, flood):
+func update_ui(money, month, tool, phase):
 	money_label.text = "₱" + str(money)
-	month_label.text = "Month: " + str(month)
+	var month_names = [
+		"January", "February", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December"
+	]
+
+	var month_index = int((month - 1) % 12)
+	month_label.text = "Month: " + month_names[month_index]
 	
 	match tool:
 		"drain":
@@ -58,11 +64,16 @@ func update_ui(money, month, tool, phase, flood):
 	if pipes.has(tool):
 		pipeSelection.visible = true
 		
-	#var phase_style = StyleBoxFlat.new()
-	#var storm_color = Color(38, 71, 122)
-	#phase_style.set_border_color(storm_color) 
-	#phase_panel.add_theme_stylebox_override("panel", phase_style)
+	var phase_style = phase_panel.get_theme_stylebox("panel").duplicate()
+	if phase == "building":
+		var building_color = Color(18.892, 18.892, 0.0)
+		phase_style.set_bg_color(building_color) 
+		phase_panel.add_theme_stylebox_override("panel", phase_style)
+		phase_icon.texture = load("res://Sprites/Sun.svg")
+	elif phase == "storm":
+		var storm_color = Color.GRAY
+		phase_style.set_bg_color(storm_color) 
+		phase_panel.add_theme_stylebox_override("panel", phase_style)
+		phase_icon.texture = load("res://Sprites/storm.svg")
 	
-	print(phase)
-	
-	flood_bar.value = flood
+	#flood_bar.value = flood

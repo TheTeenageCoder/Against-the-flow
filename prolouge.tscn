@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://i46uftgnw8s7"]
+
+[ext_resource type="Script" uid="uid://dc0r82kmwo5tk" path="res://Scripts/prolouge.gd" id="1_u63lq"]
+[ext_resource type="Texture2D" uid="uid://bgvs7nkj8m0v4" path="res://Cutscenes/contract.PNG" id="2_psb7e"]
+[ext_resource type="FontFile" uid="uid://dpyup6ovibiry" path="res://Fonts/League_Spartan/static/LeagueSpartan-Bold.ttf" id="3_6484v"]
+[ext_resource type="Texture2D" uid="uid://cgsgod3njpxy5" path="res://Sprites/Characters/ALONA.PNG" id="4_lx2lb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pt07"]
+bg_color = Color(0, 0, 0, 0.54509807)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3inyc"]
+font = ExtResource("3_6484v")
+font_size = 31
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1v8v"]
+bg_color = Color(0, 0, 0, 0.54509807)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qpmw2"]
+font = ExtResource("3_6484v")
+font_size = 46
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_u63lq"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_u63lq")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1923.0
+offset_bottom = 1082.0
+texture = ExtResource("2_psb7e")
+
+[node name="Dialouge" type="Control" parent="."]
+custom_minimum_size = Vector2(1500, 250)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 282.0
+offset_top = 706.0
+offset_right = 1782.0
+offset_bottom = 956.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialouge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialouge/MarginContainer"]
+layout_mode = 2
+
+[node name="name" type="Panel" parent="Dialouge/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_stretch_ratio = 0.86
+theme_override_styles/panel = SubResource("StyleBoxFlat_2pt07")
+
+[node name="Label" type="Label" parent="Dialouge/MarginContainer/VBoxContainer/name"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 13.0
+offset_right = 495.0
+offset_bottom = 55.0
+text = "ALONA C. DIMAYUGA"
+label_settings = SubResource("LabelSettings_3inyc")
+
+[node name="text" type="Panel" parent="Dialouge/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_h1v8v")
+
+[node name="Label" type="Label" parent="Dialouge/MarginContainer/VBoxContainer/text"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 26.0
+offset_right = 1349.0
+offset_bottom = 174.0
+text = "It’s a new day at work, another day to create solutions. "
+label_settings = SubResource("LabelSettings_qpmw2")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Dialouge"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 0
+offset_left = -246.0
+offset_top = -177.0
+offset_right = 354.0
+offset_bottom = 423.0
+texture = ExtResource("4_lx2lb")
+expand_mode = 1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = SubResource("VideoStreamTheora_u63lq")
+
+[node name="FadeRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

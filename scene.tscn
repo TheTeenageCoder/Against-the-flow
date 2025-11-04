@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://o2tk3jns8edl"]
+[gd_scene load_steps=68 format=3 uid="uid://o2tk3jns8edl"]
 
 [ext_resource type="Script" uid="uid://dkr855jqjki0g" path="res://Scripts/camera.gd" id="1_iss77"]
 [ext_resource type="Script" uid="uid://bsqmkn30nnc3l" path="res://Scripts/gridInterc.gd" id="1_nxogm"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://b5f2vr8q7vbyh" path="res://Scripts/UI.gd" id="6_g6g5t"]
 [ext_resource type="Texture2D" uid="uid://bkxkj0quyql2c" path="res://Sprites/Sun.svg" id="6_y2354"]
 [ext_resource type="FontFile" uid="uid://brqom5875s7v4" path="res://Fonts/League_Spartan/static/LeagueSpartan-SemiBold.ttf" id="7_5juve"]
-[ext_resource type="Texture2D" uid="uid://bb435457sqjyh" path="res://Sprites/Pause.svg" id="7_xlvrw"]
+[ext_resource type="Texture2D" uid="uid://420v4a21e4y8" path="res://Sprites/Pause.svg" id="7_xlvrw"]
 [ext_resource type="Texture2D" uid="uid://llyn1bkwt8ov" path="res://Sprites/fastForward.svg" id="8_73fnb"]
 [ext_resource type="Texture2D" uid="uid://c84r86uoeaq6s" path="res://Sprites/building.svg" id="10_8hm71"]
 [ext_resource type="FontFile" uid="uid://71e7rsw27clo" path="res://Fonts/League_Spartan/static/LeagueSpartan-ExtraBold.ttf" id="10_fy5k1"]
@@ -32,17 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://btmd3wsolb0gh" path="res://Sprites/Pipe L-shape Icon.png" id="28_hyak3"]
 [ext_resource type="PackedScene" path="res://Scenes/notification.tscn" id="28_llic6"]
 [ext_resource type="Script" path="res://Scripts/float_notif.gd" id="28_m514l"]
+[ext_resource type="Texture2D" uid="uid://cgsgod3njpxy5" path="res://Sprites/Characters/ALONA.PNG" id="31_nb0s3"]
+[ext_resource type="Texture2D" uid="uid://7r23gnlbv78b" path="res://Sprites/arrowSelect.svg" id="32_iloo5"]
 [ext_resource type="Texture2D" uid="uid://dy8hjgwecikaw" path="res://Sprites/caution.svg" id="33_g4bmd"]
-
-[sub_resource type="Environment" id="Environment_m7jmp"]
-background_mode = 1
-background_color = Color(0.5294118, 0.80784315, 0.92156863, 1)
-tonemap_mode = 3
-tonemap_exposure = 1.1
-ssr_fade_in = 0.15528972
-ssao_enabled = true
-ssil_enabled = true
-glow_enabled = true
+[ext_resource type="AudioStream" uid="uid://dyiuqtjdssbx" path="res://Sounds/One Man Symphony - Downtempo & Lofi & Progressive Music Pack Vol - 1 (Free) - 05 Cozy.mp3" id="35_nb0s3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni31j"]
 bg_color = Color(18.892157, 18.892157, 0, 1)
@@ -171,26 +164,75 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iloo5"]
+bg_color = Color(0, 0, 0, 0.54509807)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4bmd"]
+font = ExtResource("24_i6j5g")
+font_size = 31
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5hgh"]
+bg_color = Color(0, 0, 0, 0.54509807)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hyak3"]
+font = ExtResource("24_i6j5g")
+font_size = 40
+
+[sub_resource type="Curve" id="Curve_7842m"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_jrtx1"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 16.179777), 0.0, 0.0, 0, 0, Vector2(0.9318182, 30), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_p7oqj"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_7uvds"]
+curve_x = SubResource("Curve_7842m")
+curve_y = SubResource("Curve_jrtx1")
+curve_z = SubResource("Curve_p7oqj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aobm4"]
+lifetime_randomness = 0.19
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -200, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1000, 600, 1)
+inherit_velocity_ratio = 0.309
+spread = 26.667
+gravity = Vector3(0, 2000, 0)
+scale_min = 0.19999999
+scale_over_velocity_curve = SubResource("CurveXYZTexture_7uvds")
+color = Color(0.36985418, 0.58956504, 0.89921117, 0.8784314)
+
+[sub_resource type="Environment" id="Environment_nb0s3"]
+background_mode = 1
+background_color = Color(0.69350576, 0.846832, 0.9840749, 1)
+glow_enabled = true
+
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.7660445, -0.41317588, 0.4924039, 0, 0.7660445, 0.64278764, -0.64278764, -0.4924039, 0.5868241, 20.624697, 8.316299, 5.0789766)
+transform = Transform3D(0.7660445, -0.41317588, 0.4924039, 0, 0.7660445, 0.64278764, -0.64278764, -0.4924039, 0.5868241, 13.184343, 8.316299, 5.0789766)
 fov = 56.3
 script = ExtResource("1_iss77")
 
 [node name="map" parent="." instance=ExtResource("2_yjo7n")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.22960788, -0.51447886, 0.8261913, -0.23271547, 0.7952277, 0.5598718, -0.9450524, -0.32081845, 0.062863365, 21.698067, 7.8543086, -5.8182497)
+transform = Transform3D(0.22960785, -0.51447886, 0.8261911, -0.23271544, 0.7952277, 0.55987185, -0.94505227, -0.32081842, 0.06286335, 14.257713, 7.8543086, -5.8182497)
 light_color = Color(1, 1, 0.5074483, 1)
 light_energy = 1.3
 light_indirect_energy = 1.2
 shadow_enabled = true
 shadow_bias = 0.05
 shadow_normal_bias = 1.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_m7jmp")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("6_g6g5t")
@@ -832,29 +874,125 @@ offset_bottom = 51.0
 texture = ExtResource("33_g4bmd")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="UI/Control"]
-custom_minimum_size = Vector2(20, 400)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -13.5
-offset_right = 4.0
-offset_bottom = 13.5
-grow_vertical = 2
-fill_mode = 3
-show_percentage = false
-
 [node name="FloatNotification" parent="UI/Control" instance=ExtResource("28_llic6")]
 layout_mode = 1
 
+[node name="Dialouge" type="Control" parent="UI/Control"]
+custom_minimum_size = Vector2(1500, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -709.0
+offset_top = 160.0
+offset_right = 791.0
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/Dialouge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/Dialouge/MarginContainer"]
+layout_mode = 2
+
+[node name="name" type="Panel" parent="UI/Control/Dialouge/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_stretch_ratio = 0.86
+theme_override_styles/panel = SubResource("StyleBoxFlat_iloo5")
+
+[node name="Label" type="Label" parent="UI/Control/Dialouge/MarginContainer/VBoxContainer/name"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 13.0
+offset_right = 495.0
+offset_bottom = 55.0
+text = "ALONA"
+label_settings = SubResource("LabelSettings_g4bmd")
+
+[node name="text" type="Panel" parent="UI/Control/Dialouge/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5hgh")
+
+[node name="Label" type="Label" parent="UI/Control/Dialouge/MarginContainer/VBoxContainer/text"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 25.0
+offset_right = 1339.0
+offset_bottom = 173.0
+text = "Okay, so… First, things first, I need to place drains around the city."
+label_settings = SubResource("LabelSettings_hyak3")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control/Dialouge"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 0
+offset_left = -270.0
+offset_top = -204.0
+offset_right = 330.0
+offset_bottom = 396.0
+texture = ExtResource("31_nb0s3")
+expand_mode = 1
+
+[node name="arrow" type="TextureRect" parent="UI/Control"]
+layout_mode = 0
+offset_left = 1800.0
+offset_top = 395.0
+offset_right = 1850.0
+offset_bottom = 445.0
+texture = ExtResource("32_iloo5")
+expand_mode = 1
+
 [node name="notifManager" type="Node" parent="UI"]
 script = ExtResource("28_m514l")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="UI"]
+visible = false
+position = Vector2(992, 608)
+amount = 1000
+lifetime = 0.5
+preprocess = 0.5
+randomness = 0.11
+process_material = SubResource("ParticleProcessMaterial_aobm4")
+
+[node name="FadeRect" type="ColorRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("25_g6g5t")
 
 [node name="gridInteraction" type="Node3D" parent="GameManager"]
 script = ExtResource("1_nxogm")
+
+[node name="ghostDupes" type="Node3D" parent="GameManager"]
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
+stream = ExtResource("35_nb0s3")
+autoplay = true
+parameters/looping = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nb0s3")
 
 [connection signal="pressed" from="UI/Control/topRight/Layer/Button" to="UI/Control/topRight/Layer" method="_on_button_pressed"]

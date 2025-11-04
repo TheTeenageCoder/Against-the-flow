@@ -1,7 +1,7 @@
 extends Panel
 
 const POP_DURATION = 0.2
-const STAGGER_TIME = 0.0001
+const STAGGER_TIME = 0.0003
 const GRID_MOVE_DURATION = 0.485
 const GRID_MOVE_AMOUNT = 0.4
 const MIN_SCALE = Vector3(0.001, 0.001, 0.001)
@@ -37,7 +37,15 @@ func _toggle_layer_animated():
 	if layer.visible == true:
 		label.text = "G1"
 		layerAssets.visible = false
+		for part in get_node("../../../../map/Placed/under").get_children():
+			if part.name != "output":
+				part.visible = true
 		
+		if $"../../../../GameManager".needLayerDialouge:
+			$"../../../../GameManager".dialougeIndex += 1
+			print("From layer interacton: " + str($"../../../../GameManager".dialougeIndex))
+			
+			$"../../../../GameManager".needLayerDialouge = false
 		for part in placedSurface.get_children():
 			part.transparency = 0.7
 		
@@ -51,16 +59,22 @@ func _toggle_layer_animated():
 		await grid_tween.finished
 		
 		layer.visible = false
+		get_node("../../../../map/flood").visible = false
 	else:
 		label.text = "L1"
 		layer.visible = true
+		if $"../../../../GameManager".phase == "storm":
+			get_node("../../../../map/flood").visible = true
+		for part in get_node("../../../../map/Placed/under").get_children():
+			if part.name != "output":
+				part.visible = false
 
 		total_stagger_time = _start_staggered_animation(
 			nodes_to_animate, MIN_SCALE, Vector3(1,0.4,1), POP_DURATION, true
 		)
 		
 		grid_tween.tween_property(grid, "position", grid.position + Vector3(0, GRID_MOVE_AMOUNT, 0), GRID_MOVE_DURATION)
-
+		
 		await get_tree().create_timer(total_stagger_time).timeout
 		await grid_tween.finished
 		

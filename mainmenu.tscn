@@ -1,0 +1,457 @@
+[gd_scene load_steps=33 format=3 uid="uid://vdn5kvdkormh"]
+
+[ext_resource type="Script" uid="uid://ctib7y1ryla0m" path="res://Scripts/mainmenu.gd" id="1_3pujl"]
+[ext_resource type="Texture2D" uid="uid://btcg4eijgno7x" path="res://Sprites/mainmenu.PNG" id="1_cmhrf"]
+[ext_resource type="FontFile" uid="uid://dbanixu8ijgr1" path="res://Fonts/Amatic_SC/AmaticSC-Regular.ttf" id="3_igs2m"]
+[ext_resource type="FontFile" uid="uid://clnw5xp1wo6c1" path="res://Fonts/Amatic_SC/AmaticSC-Bold.ttf" id="4_3pujl"]
+[ext_resource type="Texture2D" uid="uid://do4bmh8pi7bba" path="res://Sprites/trophy.svg" id="4_qrn07"]
+[ext_resource type="AudioStream" uid="uid://dyiuqtjdssbx" path="res://Sounds/One Man Symphony - Downtempo & Lofi & Progressive Music Pack Vol - 1 (Free) - 05 Cozy.mp3" id="5_3pujl"]
+[ext_resource type="Script" uid="uid://bdj4qvwrx51o0" path="res://Scripts/ReturnMain.gd" id="8_dihg0"]
+[ext_resource type="Script" uid="uid://b64m51dmpr5lw" path="res://Scripts/mSlider.gd" id="8_rqglp"]
+[ext_resource type="Script" uid="uid://bju2y2bviyjaw" path="res://Scripts/bSlider.gd" id="9_0y70q"]
+[ext_resource type="Script" uid="uid://cen6gw1eicypb" path="res://rich_text_label.gd" id="10_0y70q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pujl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7uvds"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_at6rn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgsso"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dihg0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lidg2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rqglp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0y70q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igs2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrn07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_raimv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qy7ti"]
+
+[sub_resource type="Curve" id="Curve_wgsso"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_igs2m"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 16.179777), 0.0, 0.0, 0, 0, Vector2(0.9318182, 30), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_3pujl"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_7uvds"]
+curve_x = SubResource("Curve_wgsso")
+curve_y = SubResource("Curve_igs2m")
+curve_z = SubResource("Curve_3pujl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wgsso"]
+lifetime_randomness = 0.19
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -200, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1000, 600, 1)
+inherit_velocity_ratio = 0.309
+spread = 26.667
+gravity = Vector3(0, 2000, 0)
+scale_min = 0.19999999
+scale_over_velocity_curve = SubResource("CurveXYZTexture_7uvds")
+color = Color(0.36985418, 0.58956504, 0.89921117, 0.8784314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5i8j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f0ka0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0ka0"]
+bg_color = Color(0, 0, 0, 0.6627451)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqdfc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rqglp"]
+
+[node name="Mainmenu" type="Node2D"]
+script = ExtResource("1_3pujl")
+tween_intensity = 1.2
+tween_duration = 0.5
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1923.0
+offset_bottom = 1082.0
+texture = ExtResource("1_cmhrf")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 1624.0
+offset_top = 384.0
+offset_right = 1984.0
+offset_bottom = 448.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_igs2m")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3pujl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7uvds")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_at6rn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wgsso")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dihg0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lidg2")
+text = "Start Game"
+alignment = 0
+
+[node name="Options" type="Button" parent="."]
+offset_left = 1672.0
+offset_top = 448.0
+offset_right = 1960.0
+offset_bottom = 512.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_igs2m")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3pujl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rqglp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0y70q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_igs2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qrn07")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_raimv")
+text = "Options"
+alignment = 0
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 1680.0
+offset_top = 512.0
+offset_right = 1952.0
+offset_bottom = 576.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_igs2m")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3pujl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rqglp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0y70q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_igs2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qrn07")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qy7ti")
+text = "Credits"
+alignment = 0
+
+[node name="Exit Game" type="Button" parent="."]
+offset_left = 1644.0
+offset_top = 576.0
+offset_right = 1984.0
+offset_bottom = 640.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_igs2m")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3pujl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rqglp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0y70q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_igs2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qrn07")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qy7ti")
+text = "Exit Game"
+alignment = 0
+
+[node name="Leaderboard" type="Button" parent="."]
+offset_left = 72.0
+offset_top = 64.0
+offset_right = 280.0
+offset_bottom = 128.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_igs2m")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3pujl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rqglp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0y70q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_igs2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qrn07")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qy7ti")
+text = "Leaderboard"
+icon = ExtResource("4_qrn07")
+alignment = 0
+expand_icon = true
+
+[node name="Title" type="Label" parent="."]
+offset_left = 1064.0
+offset_top = 192.0
+offset_right = 1824.0
+offset_bottom = 445.0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 150
+text = "AGAINST THE FLOW"
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
+stream = ExtResource("5_3pujl")
+autoplay = true
+parameters/looping = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(992, 608)
+amount = 1000
+lifetime = 0.5
+preprocess = 0.5
+randomness = 0.11
+process_material = SubResource("ParticleProcessMaterial_wgsso")
+
+[node name="Options2" type="Node2D" parent="."]
+visible = false
+
+[node name="TextureRect2" type="TextureRect" parent="Options2"]
+modulate = Color(0.3254902, 0.3254902, 0.3254902, 1)
+offset_right = 1923.0
+offset_bottom = 1082.0
+texture = ExtResource("1_cmhrf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" type="Label" parent="Options2"]
+offset_left = 760.0
+offset_top = 160.0
+offset_right = 1199.0
+offset_bottom = 297.0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 100
+text = "OPTIONS"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="music" type="Label" parent="Options2/Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.46715328
+offset_left = -76.5
+offset_top = 216.0
+offset_right = 76.5
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 50
+text = "Music"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="mSlider" type="HSlider" parent="Options2/Options/music"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -588.0
+offset_top = -38.0
+offset_right = 588.0
+offset_bottom = -6.0
+grow_horizontal = 2
+value = 50.0
+script = ExtResource("8_rqglp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sfx" type="Label" parent="Options2/Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.328
+anchor_top = 0.17500001
+anchor_right = -0.328
+anchor_bottom = 0.17500001
+offset_left = 255.992
+offset_top = 392.025
+offset_right = 457.992
+offset_bottom = 456.025
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 50
+text = "Sound Effects"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Options2/Options/Sfx"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -581.0
+offset_top = -24.0
+offset_right = 595.0
+offset_bottom = 8.0
+grow_horizontal = 2
+value = 50.0
+
+[node name="Light" type="Label" parent="Options2/Options"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.54700005
+anchor_top = 2.628
+anchor_right = -0.54700005
+anchor_bottom = 2.628
+offset_left = 368.13303
+offset_top = 239.96399
+offset_right = 528.13306
+offset_bottom = 311.964
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 50
+text = "Brightness"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="bSlider" type="HSlider" parent="Options2/Options/Light"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43124992
+anchor_right = 0.43124992
+offset_left = -565.0
+offset_top = -32.0
+offset_right = 611.0
+grow_horizontal = 2
+min_value = 0.7
+max_value = 1.3
+step = 0.1
+value = 1.0
+script = ExtResource("9_0y70q")
+metadata/_edit_use_anchors_ = true
+
+[node name="Back2" type="Button" parent="Options2"]
+offset_left = 1680.0
+offset_top = 976.0
+offset_right = 1854.0
+offset_bottom = 1033.0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y5i8j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f0ka0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f0ka0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lqdfc")
+text = "Back (Esc)"
+script = ExtResource("8_dihg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits2" type="Node2D" parent="."]
+visible = false
+
+[node name="TextureRect2" type="TextureRect" parent="Credits2"]
+modulate = Color(0.3254902, 0.3254902, 0.3254902, 1)
+offset_right = 1923.0
+offset_bottom = 1082.0
+texture = ExtResource("1_cmhrf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Back2" type="Button" parent="Credits2"]
+offset_left = 1680.0
+offset_top = 976.0
+offset_right = 1854.0
+offset_bottom = 1033.0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y5i8j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f0ka0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f0ka0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lqdfc")
+text = "Back (Esc)"
+script = ExtResource("8_dihg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="Label" parent="Credits2"]
+offset_left = 856.0
+offset_top = 64.0
+offset_right = 1067.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 100
+text = "CREDITS"
+
+[node name="Names" type="Label" parent="Credits2/Credits"]
+layout_mode = 0
+offset_left = -720.0
+offset_top = 169.0
+offset_right = 56.0
+offset_bottom = 816.0
+theme_override_fonts/font = ExtResource("4_3pujl")
+theme_override_font_sizes/font_size = 100
+text = "April Dawn Karylle L. Chy
+Enzo Miguel E. Abad
+Eugenio Jironebb S. Ujano
+Kian Raphael D. Rustia
+Lebron M. Javier"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits2/Credits"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 176.0
+offset_right = 1000.0
+offset_bottom = 488.0
+theme_override_fonts/normal_font = ExtResource("4_3pujl")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "Music By:
+One Man Symphony
+ [url=https://onemansymphony.bandcamp.com]onemansymphony.bandcamp.com [/url]"
+horizontal_alignment = 2
+script = ExtResource("10_0y70q")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.994978, 1, 0.80119956, 1)
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_rqglp")
+position = Vector2(992, 608)
+amount = 60
+lifetime = 1.52
+preprocess = 0.5
+randomness = 0.11
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_wgsso")
+
+[connection signal="pressed" from="Options2/Back2" to="Options2/Back2" method="_on_pressed"]
+[connection signal="pressed" from="Credits2/Back2" to="Credits2/Back2" method="_on_pressed"]
+[connection signal="meta_clicked" from="Credits2/Credits/RichTextLabel" to="Credits2/Credits/RichTextLabel" method="_on_meta_clicked"]

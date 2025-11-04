@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6r0qgs4rop3h"]
 
-[ext_resource type="ArrayMesh" uid="uid://cm2oe10t3od5" path="res://Models/drain/source/Drain.obj" id="1_bkr73"]
+[ext_resource type="ArrayMesh" uid="uid://dfpscv8gkrgrm" path="res://Models/drain/source/Drain.obj" id="1_bkr73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bkr73"]
-size = Vector3(83, 4.0492187, 83)
+size = Vector3(40, 1, 40)
 
 [node name="drain" type="MeshInstance3D"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -12,9 +12,9 @@ cast_shadow = 0
 mesh = ExtResource("1_bkr73")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7547222, 0)
 shape = SubResource("BoxShape3D_bkr73")

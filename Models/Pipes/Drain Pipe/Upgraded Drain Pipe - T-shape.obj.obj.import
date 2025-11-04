@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgbblax67isl"
+path="res://.godot/imported/Upgraded Drain Pipe - T-shape.obj.obj-59000c33233858de2fdfd08e8bcdbe12.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Upgraded Drain Pipe - T-shape.obj.obj-59000c33233858de2fdfd08e8bcdbe12.mesh"]
+
+source_file="res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - T-shape.obj.obj"
+dest_files=["res://.godot/imported/Upgraded Drain Pipe - T-shape.obj.obj-59000c33233858de2fdfd08e8bcdbe12.mesh", "res://.godot/imported/Upgraded Drain Pipe - T-shape.obj.obj-59000c33233858de2fdfd08e8bcdbe12.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -16,6 +16,7 @@ shader_parameter/corner_length_pct = 0.40800001938
 
 [node name="upgrade" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
+layers = 2
 mesh = SubResource("BoxMesh_1l1uf")
 surface_material_override/0 = SubResource("ShaderMaterial_sxl7u")
 
