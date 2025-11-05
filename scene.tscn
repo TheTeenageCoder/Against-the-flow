@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkr855jqjki0g" path="res://Scripts/camera.gd" id="1_iss77"]
 [ext_resource type="Script" uid="uid://bsqmkn30nnc3l" path="res://Scripts/gridInterc.gd" id="1_nxogm"]
-[ext_resource type="PackedScene" uid="uid://nyx6q6otoxw2" path="res://Scenes/maps/map1.tscn" id="2_yjo7n"]
+[ext_resource type="PackedScene" uid="uid://nyx6q6otoxw2" path="res://Scenes/maps/map0.tscn" id="2_yjo7n"]
 [ext_resource type="Script" uid="uid://d2284qwsrivjt" path="res://Scripts/buttonSound.gd" id="4_jrtx1"]
 [ext_resource type="Script" uid="uid://b5f2vr8q7vbyh" path="res://Scripts/UI.gd" id="6_g6g5t"]
 [ext_resource type="Texture2D" uid="uid://bkxkj0quyql2c" path="res://Sprites/Sun.svg" id="6_y2354"]
@@ -974,7 +974,7 @@ volume_db = -13.165
 
 [node name="rain" type="AudioStreamPlayer" parent="UI/Control"]
 stream = ExtResource("34_7842m")
-parameters/looping = false
+volume_db = -15.903
 
 [node name="rain2" type="AudioStreamPlayer" parent="UI/Control"]
 stream = ExtResource("35_jrtx1")
@@ -997,7 +997,6 @@ randomness = 0.11
 process_material = SubResource("ParticleProcessMaterial_aobm4")
 
 [node name="FadeRect" type="ColorRect" parent="UI"]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

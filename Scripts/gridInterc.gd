@@ -3,9 +3,9 @@ extends Node3D
 @export var camera: Camera3D
 @export var ghost_scene: PackedScene
 
-@onready var map = $"../../map"
+@onready var map 
 @onready var gameManager = get_node("..")
-@onready var layer1 = $"../../map/Layer0"
+@onready var layer1 
 @onready var toolSFX = $"../../UI/Control/toolSFX"
 
 var grid_pos
@@ -51,10 +51,20 @@ func update_obj(tool):
 	orientation = Vector3(0,0,0)
 
 func _ready():
+	set_process(false)
+	while not gameManager.is_loaded:
+		await get_tree().process_frame
+	set_process(true)
+	
+	for child in  $"../..".get_children():
+		if child is Node3D:
+			map = child
+	layer1 = map.get_node("Layer0")
+	print(layer1)
 	if camera == null:
 		camera = get_viewport().get_camera_3d()
-		
-	$"../../map/Placed".check_connection()
+	
+	map.get_node("Placed").check_connection()
 		
 	update_obj(gameManager.current_tool)
 	
@@ -110,7 +120,7 @@ func _process(_delta):
 							if part.name == "ghostDupe":
 								part.queue_free()
 
-						for part in get_node("../../map/Placed/under").get_children():
+						for part in map.get_node("Placed/under").get_children():
 							if part.name != "output":
 								var ghostDupe = ghost.duplicate()
 								ghostDupe.name = "ghostDupe"
@@ -158,7 +168,7 @@ func place_obj(tool, pos: Vector3):
 			
 	var posV2 = Vector2(pos.x, pos.z)
 	if layer1.visible == true:
-		for part in get_node("../../map/Assets").get_children():
+		for part in map.get_node("Assets").get_children():
 			var partGPV2 = Vector2(part.global_position.x, part.global_position.z)
 			if posV2 == partGPV2:
 				notif.notify("Tile contains an object", Color.RED)
@@ -204,7 +214,7 @@ func place_obj(tool, pos: Vector3):
 				gameManager.needDrainDialouge = false
 			
 				
-			var placed_objects = get_node("../../map/Placed/under")
+			var placed_objects = map.get_node("Placed/under")
 			var posUnder = Vector3(pos.x, -0.02437, pos.z)
 			
 			for child in placed_objects.get_children():
@@ -442,7 +452,7 @@ func place_obj(tool, pos: Vector3):
 			new_obj = pipe_scene.instantiate()
 		
 	if layer1.visible:
-		get_node("../../map/Placed/surface").add_child(new_obj)
+		map.get_node("Placed/surface").add_child(new_obj)
 	else:
 		if gameManager.pipesUpgraded:
 			if new_obj.get_node("mesh"):
@@ -457,7 +467,7 @@ func place_obj(tool, pos: Vector3):
 					meshType = meshRes.trim_suffix(".obj").trim_prefix("res://Models/Pipes/Pipe - ")
 					newMesh = load("res://Models/Pipes/Upgraded Pipe - "+meshType+".obj")
 				new_obj.get_node("mesh").mesh = newMesh
-		get_node("../../map/Placed/under").add_child(new_obj)
+		map.get_node("Placed/under").add_child(new_obj)
 	
 	var tween = create_tween()
 	new_obj.scale = Vector3.ZERO

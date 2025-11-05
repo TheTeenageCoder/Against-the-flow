@@ -1,26 +1,39 @@
 extends Panel
 
 const POP_DURATION = 0.2
-const STAGGER_TIME = 0.0003
+var STAGGER_TIME = 0.0003
 const GRID_MOVE_DURATION = 0.485
 const GRID_MOVE_AMOUNT = 0.4
 const MIN_SCALE = Vector3(0.001, 0.001, 0.001)
 
+@onready var map
+@onready var gameManager = $"../../../../GameManager"
+
 var is_animating = false
+
+func _ready():
+	while not gameManager.is_loaded:
+		await get_tree().process_frame
+	
+	for child in $"../../../..".get_children():
+		if child is Node3D:
+			map = child
+	
+	if map.get_node("gridPlane").mesh.size.x == 25:
+		STAGGER_TIME = 0.00001
 
 func _on_button_pressed():
 	if is_animating:
 		return
-	
 	_toggle_layer_animated()
 
 func _toggle_layer_animated():
 	is_animating = true
 	
-	var layer = get_node("../../../../map/Layer0")
-	var layerAssets = get_node("../../../../map/Assets")
-	var placedSurface = get_node("../../../../map/Placed/surface")
-	var grid = get_node("../../../../map/gridPlane")
+	var layer = map.get_node("Layer0")
+	var layerAssets = map.get_node("Assets")
+	var placedSurface = map.get_node("Placed/surface")
+	var grid = map.get_node("gridPlane")
 	var label = get_node("Label")
 	
 	if not is_instance_valid(layer) or not is_instance_valid(grid):
@@ -37,15 +50,15 @@ func _toggle_layer_animated():
 	if layer.visible == true:
 		label.text = "G1"
 		layerAssets.visible = false
-		for part in get_node("../../../../map/Placed/under").get_children():
+		for part in map.get_node("Placed/under").get_children():
 			if part.name != "output":
 				part.visible = true
 		
-		if $"../../../../GameManager".needLayerDialouge:
-			$"../../../../GameManager".dialougeIndex += 1
-			print("From layer interacton: " + str($"../../../../GameManager".dialougeIndex))
+		if gameManager.needLayerDialouge:
+			gameManager.dialougeIndex += 1
+			print("From layer interacton: " + str(gameManager.dialougeIndex))
 			
-			$"../../../../GameManager".needLayerDialouge = false
+			gameManager.needLayerDialouge = false
 		for part in placedSurface.get_children():
 			part.transparency = 0.7
 		
@@ -59,13 +72,13 @@ func _toggle_layer_animated():
 		await grid_tween.finished
 		
 		layer.visible = false
-		get_node("../../../../map/flood").visible = false
+		map.get_node("flood").visible = false
 	else:
 		label.text = "L1"
 		layer.visible = true
-		if $"../../../../GameManager".phase == "storm":
-			get_node("../../../../map/flood").visible = true
-		for part in get_node("../../../../map/Placed/under").get_children():
+		if gameManager.phase == "storm":
+			map.get_node("flood").visible = true
+		for part in map.get_node("Placed/under").get_children():
 			if part.name != "output":
 				part.visible = false
 

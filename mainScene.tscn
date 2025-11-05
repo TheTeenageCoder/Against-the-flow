@@ -1,7 +1,7 @@
 [gd_scene load_steps=68 format=3 uid="uid://bd52er2d7itp6"]
 
 [ext_resource type="Script" uid="uid://dkr855jqjki0g" path="res://Scripts/camera.gd" id="1_cn68p"]
-[ext_resource type="PackedScene" uid="uid://nyx6q6otoxw2" path="res://Scenes/maps/map1.tscn" id="2_x1ket"]
+[ext_resource type="PackedScene" uid="uid://nyx6q6otoxw2" path="res://Scenes/maps/map0.tscn" id="2_x1ket"]
 [ext_resource type="Script" uid="uid://b5f2vr8q7vbyh" path="res://Scripts/UI.gd" id="3_884pp"]
 [ext_resource type="Texture2D" uid="uid://bkxkj0quyql2c" path="res://Sprites/Sun.svg" id="4_qi8ak"]
 [ext_resource type="FontFile" uid="uid://brqom5875s7v4" path="res://Fonts/League_Spartan/static/LeagueSpartan-SemiBold.ttf" id="5_wwjen"]

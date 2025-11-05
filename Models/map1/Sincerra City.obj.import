@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bo51ulr7opr5u"
+path="res://.godot/imported/Sincerra City.obj-b3540f06216e7791f513dbcb2a99a5ac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Sincerra City.obj-b3540f06216e7791f513dbcb2a99a5ac.mesh"]
+
+source_file="res://Models/map1/Sincerra City.obj"
+dest_files=["res://.godot/imported/Sincerra City.obj-b3540f06216e7791f513dbcb2a99a5ac.mesh", "res://.godot/imported/Sincerra City.obj-b3540f06216e7791f513dbcb2a99a5ac.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

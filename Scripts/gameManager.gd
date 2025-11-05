@@ -10,6 +10,7 @@ extends Node
 @onready var medium_rain = $"../UI/Control/rain2"
 @onready var heavy_Rain = $"../UI/Control/rain3"
 
+var is_loaded = false
 var save_path := "user://data.json"
 
 # === Typing / Dialogue ===
@@ -66,7 +67,7 @@ var current_month = 11:
 		_update_ui()
 		
 var max_months := 2
-var month_duration := 20.0
+var month_duration := 0.0
 
 # === Game Phases ===
 var phase := "building":
@@ -100,10 +101,10 @@ var random_break_chance := 0.01
 var waiting := true
 
 func _ready():
+	set_process(false)
 	_update_ui()
 	await load_game()
 	await fade("in")
-		
 	print("game loaded - Act: " + str(act))
 	
 	flood_level = 0.0
@@ -118,12 +119,40 @@ func _ready():
 	if act == 0:
 		fade_rect.mouse_filter = 1
 		print("Tutorial started — November: building")
+		map.queue_free()
+		var newMap = load("res://Scenes/maps/map0.tscn").instantiate()
+		$"..".add_child(newMap)
 		current_month = 11
+		month_duration = 20*Engine.get_frames_per_second()
 		_on_dialouge_index_changed(0)
 	
 	if act == 1:
 		print("Act I started — January: building")
-		fade_rect.mouse_filter = 2
+		map.queue_free()
+		var newMap = load("res://Scenes/maps/map1.tscn").instantiate()
+		$"..".add_child(newMap)
+		$"../Camera3D".position.x += 15
+		current_month = 1
+		month_duration = 90*Engine.get_frames_per_second()
+		_on_dialouge_index_changed(0)
+	
+	if act == 2:
+		print("Act II started — January: building")
+		map.queue_free()
+		var newMap = load("res://Scenes/maps/map2.tscn").instantiate()
+		$"..".add_child(newMap)
+		$"../Camera3D".position.x += 15
+		current_month = 1
+		month_duration = 20*Engine.get_frames_per_second()
+		_on_dialouge_index_changed(0)
+		
+	for child in $"..".get_children():
+		if child is Node3D:
+			map = child
+	
+	await get_tree().create_timer(0.5).timeout
+	is_loaded = true
+	set_process(true)
 
 var elapsed_time := 0.0
 
@@ -131,20 +160,22 @@ var layerOpen = false
 var layerOpen2 = false
 
 var skippable = false
+var runThrough = false
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and skippable == true:
-		print("skip")
-		
-		var tween = create_tween()
-		tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE * 1.1, 0.25 * 0.2)\
-			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ZERO, 0.25 * 0.8)\
-			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-		await tween.finished
-		$"../UI/Control/Dialouge".visible = false
-		fade_rect.mouse_filter = 2
-		skippable = false
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if skippable:
+			var tween = create_tween()
+			tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE * 1.1, 0.25 * 0.2)\
+				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ZERO, 0.25 * 0.8)\
+				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+			await tween.finished
+			$"../UI/Control/Dialouge".visible = false
+			fade_rect.mouse_filter = 2
+			skippable = false
+		elif runThrough:
+			dialougeIndex += 1 
 
 func type_text(label: Label, full_text: String) -> void:
 	# Starts typing the given text into the label, playing typing_audio while typing.
@@ -189,7 +220,10 @@ func _process(delta):
 	
 	if phase == "storm":
 		$"../UI/GPUParticles2D".visible = true
-		$"../map/flood".visible = true
+		map.get_node("flood").visible = true
+		
+		if not $"../UI/Control/rain".is_playing():
+			$"../UI/Control/rain".play()
 		
 		var reduction = 0
 		for key in drains.keys():
@@ -206,8 +240,8 @@ func _process(delta):
 		flood_node.mesh.size.y = flood_level
 		flood_node.position.y = 0.35 + (flood_level / 2.0)
 
-		elapsed_time += 0.1
-		if elapsed_time > 300:
+		elapsed_time += 1
+		if elapsed_time > month_duration:
 			print("Storm has passed")
 			phase = "building"
 			if act == 0:
@@ -217,104 +251,193 @@ func _process(delta):
 			flood_node.mesh.size.y = prevSize
 			flood_node.position.y = prevPos
 			flood_node.visible = false
+			if  $"../UI/Control/rain".is_playing():
+				$"../UI/Control/rain".stop()
 		if map.get_node("flood").mesh.size.y  > flood_treshold:
 			if act == 0:
 				dialougeIndex = 6
-			phase = "building"
-			flood_level = 0.0
-			flood_node.mesh.size.y = prevSize
-			flood_node.position.y = prevPos
-			flood_node.visible = false
-			$"../UI/GPUParticles2D".visible = false
+				phase = "building"
+				flood_level = 0.0
+				flood_node.mesh.size.y = prevSize
+				flood_node.position.y = prevPos
+				flood_node.visible = false
+				$"../UI/GPUParticles2D".visible = false
+				if  $"../UI/Control/rain".is_playing():
+					$"../UI/Control/rain".stop()
+			else:
+				await fade("out")
+				get_tree().reload_current_scene()
+					
+			
 
 func _on_dialouge_index_changed(index: float) -> void:
-	if act != 0:
-		return  # Only handle for act 0
-	if current_tool != "none":
-		current_tool = "none"
-		var slide_distance = $"../UI/Control/leftSelect".size.x
-		var target_x = $"../UI/Control/leftSelect".position.x - slide_distance
-		var target_position = Vector2(target_x, $"../UI/Control/leftSelect".position.y)
-		var duration = 0.3 
+	if act == 0:
+		if current_tool != "none":
+			current_tool = "none"
+			var slide_distance = $"../UI/Control/leftSelect".size.x
+			var target_x = $"../UI/Control/leftSelect".position.x - slide_distance
+			var target_position = Vector2(target_x, $"../UI/Control/leftSelect".position.y)
+			var duration = 0.3 
 
-		var tweenSelect = create_tween()
-		tweenSelect.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			
-		tweenSelect.tween_property($"../UI/Control/leftSelect", "position", target_position, duration)
-	fade_rect.mouse_filter = 1
-	$"../UI/Control/Dialouge".visible = true
-	print("DIalouge start")
-	print(dialougeIndex)
-	var tween = create_tween()
-	tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE * 1.1, 0.25 * 0.6)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE, 0.25 * 0.4)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
-	match index:
-		0.0:			
-			await start_type_text(dialog_label, "Okay, so… First, things first, I need to place drains around the city.")
-			needInvalidDialouge = true
-			skippable = true
-		1.0:
-			await start_type_text(dialog_label, "I can’t place drains on top of those buildings.")
-			needDrainDialouge = true
-			skippable = true
-		2.0:
-			await start_type_text(dialog_label, "That looks good, now I need to go underground to place pipes.")
-			$"../UI/Control/arrow".global_position = Vector2(1835, 177)
-			$"../UI/Control/arrow".rotation = deg_to_rad(-90)
-			skippable = true
-			needLayerDialouge = true
-		3.0:
-			await start_type_text(dialog_label, "These pipes need to be connected to that outer pipe to drain the water.")
-			$"../UI/Control/arrow".global_position = Vector2(1800, 455)
-			$"../UI/Control/arrow".rotation = 0
-			skippable = true
-			needPipeDialouge = true
-		4.0:
-			await start_type_text(dialog_label, "I need to make sure these pipes are all connected to let the water fully drain.")
-			needConnectionDialouge = true
-			skippable = true
-		5.0:
-			await start_type_text(dialog_label, "Now that’s done… I’ll simulate rain to test this system.")
-			skippable = true
-			if not layerOpen2:
-				$"../UI/Control/topRight/Layer"._toggle_layer_animated()
-				layerOpen2 = true
-			phase = "storm"
-			flood_treshold = 0.25
-		6.0:
-			await start_type_text(dialog_label, "Oh..! This needs more drains. I’ll set up more: I need to destroy these pipes for now and I’ll connect the new drains.")
-			$"../UI/Control/arrow".global_position = Vector2(1800, 515)
-			skippable = true
-			needDemolishDialouge = true
-		7.0:
-			await start_type_text(dialog_label, "Destroying these pipes will give me a portion of the money back.")
-			skippable = true
-			needConnectionDialouge = true
-		8.0:
-			await start_type_text(dialog_label, "Just to make sure, I’ll upgrade these pipes to drain more water.")
-			skippable = true
-			$"../UI/Control/arrow".global_position = Vector2(1800, 575)
-		9.0:
-			await start_type_text(dialog_label, "Okay! Now, let’s test it again.")
-			$"../UI/Control/arrow".visible = false
-			if not layerOpen:
-				$"../UI/Control/topRight/Layer"._toggle_layer_animated()
-				layerOpen = true
-			skippable = true
-			flood_treshold = 0.25
-			month_duration = 10
-			phase = "storm"
-		10.0:
-			await start_type_text(dialog_label, "Alright! Now, I’m more than ready to face the challenge that the Governor gave me!", true)
-			is_game_over = true
-			act += 1
-			await fade("out")
-			get_tree().reload_current_scene()
-		_: 
-			$"../UI/Control/Dialouge".visible = false
-			
+			var tweenSelect = create_tween()
+			tweenSelect.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+				
+			tweenSelect.tween_property($"../UI/Control/leftSelect", "position", target_position, duration)
+		fade_rect.mouse_filter = 1
+		$"../UI/Control/Dialouge".visible = true
+		print("DIalouge start")
+		print(dialougeIndex)
+		var tween = create_tween()
+		tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE * 1.1, 0.25 * 0.6)\
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE, 0.25 * 0.4)\
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
+		match index:
+			0.0:			
+				await start_type_text(dialog_label, "Okay, so… First, things first, I need to place drains around the city.")
+				needInvalidDialouge = true
+				skippable = true
+			1.0:
+				await start_type_text(dialog_label, "I can’t place drains on top of those buildings.")
+				needDrainDialouge = true
+				skippable = true
+			2.0:
+				await start_type_text(dialog_label, "That looks good, now I need to go underground to place pipes.")
+				$"../UI/Control/arrow".global_position = Vector2(1835, 177)
+				$"../UI/Control/arrow".rotation = deg_to_rad(-90)
+				skippable = true
+				needLayerDialouge = true
+			3.0:
+				await start_type_text(dialog_label, "These pipes need to be connected to that outer pipe to drain the water.")
+				$"../UI/Control/arrow".global_position = Vector2(1800, 455)
+				$"../UI/Control/arrow".rotation = 0
+				skippable = true
+				needPipeDialouge = true
+			4.0:
+				await start_type_text(dialog_label, "I need to make sure these pipes are all connected to let the water fully drain.")
+				needConnectionDialouge = true
+				skippable = true
+			5.0:
+				await start_type_text(dialog_label, "Now that’s done… I’ll simulate rain to test this system.")
+				skippable = true
+				if not layerOpen2:
+					$"../UI/Control/topRight/Layer"._toggle_layer_animated()
+					layerOpen2 = true
+				phase = "storm"
+				flood_treshold = 0.25
+			6.0:
+				await start_type_text(dialog_label, "Oh..! This needs more drains. I’ll set up more: I need to destroy these pipes for now and I’ll connect the new drains.")
+				$"../UI/Control/arrow".global_position = Vector2(1800, 515)
+				skippable = true
+				needDemolishDialouge = true
+			7.0:
+				await start_type_text(dialog_label, "Destroying these pipes will give me a portion of the money back.")
+				skippable = true
+				needConnectionDialouge = true
+			8.0:
+				await start_type_text(dialog_label, "Just to make sure, I’ll upgrade these pipes to drain more water.")
+				skippable = true
+				$"../UI/Control/arrow".global_position = Vector2(1800, 575)
+			9.0:
+				await start_type_text(dialog_label, "Okay! Now, let’s test it again.")
+				$"../UI/Control/arrow".visible = false
+				if not layerOpen:
+					$"../UI/Control/topRight/Layer"._toggle_layer_animated()
+					layerOpen = true
+				skippable = true
+				flood_treshold = 0.25
+				month_duration = 10
+				phase = "storm"
+			10.0:
+				await start_type_text(dialog_label, "Alright! Now, I’m more than ready to face the challenge that the Governor gave me!", true)
+				is_game_over = true
+				act += 1
+				await fade("out")
+				get_tree().reload_current_scene()
+			_: 
+				$"../UI/Control/Dialouge".visible = false
+	elif act == 1:
+		set_process(true)
+		fade_rect.mouse_filter = 2
+		for ui in $"../UI/Control".get_children():
+			if not ui is AudioStreamPlayer and ui.name != "Dialouge":
+				ui.visible = false
+		$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/VICKY.PNG")
+		$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "VICKY LY"
+		$"../UI/Control/Dialouge".visible = true
+		var tween = create_tween()
+		tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE * 1.1, 0.25 * 0.6)\
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		tween.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE, 0.25 * 0.4)\
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
+		
+		runThrough = false
+		match index:
+			0.0: 
+				await start_type_text(dialog_label, "Vicky Ly - She graduated as an attorney and has a strict attitude towards her work. Coming from a family of politicians, she takes her job very seriously, always being responsible and diligent. ")
+			1.0:
+				await start_type_text(dialog_label, "Sighs. So… you’re the chief engineer from the company they sent. ")
+			2.0: 
+				$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/ALONA.PNG")
+				$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "ALONA"
+				await start_type_text(dialog_label, "Yes, that’s me. Alona Dimayuga at your service.")
+			3.0: 
+				$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/VICKY.PNG")
+				$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "VICKY LY"
+				await start_type_text(dialog_label, "I’ll be honest with you, Sincerra City is in bad shape. Flooding has impeded the day to day lives of the people. ")
+			4.0:
+				await start_type_text(dialog_label, "In fact, it’s not an inconvenience anymore. Schools close for weeks, businesses are drowning in debt, and the people have started to lose hope. ")
+			5.0: 
+				$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/ALONA.PNG")
+				$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "ALONA"
+				await start_type_text(dialog_label, "Yes, I am well aware of the situation. I’ve read the reports and I won’t let you down. ")
+			6.0: 
+				$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/VICKY.PNG")
+				$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "VICKY LY"
+				await start_type_text(dialog_label, "I don’t need promises, I need results. The city needs working drainage lines and redirected flow patterns. ")
+			7.0:
+				await start_type_text(dialog_label, "So, if you’re as good as they say, then… please. Help my city. Help the people believe again. ")
+			8.0: 
+				await start_type_text(dialog_label, "The city is tired and frankly… so am I. ")
+			9.0: 
+				$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/ALONA.PNG")
+				$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "ALONA"
+				await start_type_text(dialog_label, "I won’t waste the opportunity. You have my word.")
+			10.0: 
+				$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/VICKY.PNG")
+				$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "VICKY LY"
+				await start_type_text(dialog_label, "I don’t need you to impress me. I just need the water to stop rising.")
+			11.0:
+				$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/ALONA.PNG")
+				$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "ALONA"
+				await start_type_text(dialog_label, "Then, let’s get started. Not tomorrow, not next week, now. ")
+			12.0: 
+				$"../UI/Control/Dialouge/TextureRect".texture = load("res://Sprites/Characters/VICKY.PNG")
+				$"../UI/Control/Dialouge/MarginContainer/VBoxContainer/name/Label".text = "VICKY LY"
+				await start_type_text(dialog_label, "Very well.")
+			13.0:
+				set_process(true)
+				fade_rect.mouse_filter = 2
+				var tween2 = create_tween()
+				tween2.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ONE * 1.1, 0.25 * 0.6)\
+					.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+				tween2.tween_property($"../UI/Control/Dialouge", "scale", Vector2.ZERO, 0.25 * 0.4)\
+					.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
+				for ui in $"../UI/Control".get_children():
+					if not ui is AudioStreamPlayer and ui.name != "Dialouge":
+						ui.visible = true
+				$"../UI/Control/Dialouge".visible = false
+		
+		if index != 13.0:
+			runThrough = true
+		
+	elif act == 2:
+		phase = "building"
+		#await get_tree().create_timer(month_duration/Engine.get_frames_per_second()).timeout
+		fade_rect.mouse_filter = 2
+		flood_treshold = 0.75
+		phase = "storm"
+	
 func save_game():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	if file:
@@ -326,7 +449,6 @@ func load_game():
 	if not FileAccess.file_exists(save_path):
 		print("⚠ No save file found.")
 		return
-
 	
 	var file = FileAccess.open(save_path, FileAccess.READ)
 	var json_text = file.get_as_text()
