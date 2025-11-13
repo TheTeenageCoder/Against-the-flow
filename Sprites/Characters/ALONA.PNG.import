@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgsgod3njpxy5"
-path="res://.godot/imported/ALONA.PNG-17bd85d7e4ff8697c3c8cc3a669db9bd.ctex"
+uid="uid://b87o534pfxkad"
+path="res://.godot/imported/ALONA.png-d591476d36abee44f9df4aa6511509b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/ALONA.PNG"
-dest_files=["res://.godot/imported/ALONA.PNG-17bd85d7e4ff8697c3c8cc3a669db9bd.ctex"]
+source_file="res://Sprites/Characters/ALONA.png"
+dest_files=["res://.godot/imported/ALONA.png-d591476d36abee44f9df4aa6511509b7.ctex"]
 
 [params]
 

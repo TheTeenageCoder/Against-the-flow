@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dyiuqtjdssbx" path="res://Sounds/One Man Symphony - Downtempo & Lofi & Progressive Music Pack Vol - 1 (Free) - 05 Cozy.mp3" id="5_3pujl"]
 [ext_resource type="Script" uid="uid://bdj4qvwrx51o0" path="res://Scripts/ReturnMain.gd" id="8_dihg0"]
 [ext_resource type="Script" uid="uid://b64m51dmpr5lw" path="res://Scripts/mSlider.gd" id="8_rqglp"]
-[ext_resource type="Script" uid="uid://bju2y2bviyjaw" path="res://Scripts/bSlider.gd" id="9_0y70q"]
+[ext_resource type="Script" uid="uid://bju2y2bviyjaw" path="res://Sprites/bSlider.gd" id="9_0y70q"]
 [ext_resource type="Script" uid="uid://cen6gw1eicypb" path="res://rich_text_label.gd" id="10_0y70q"]
 [ext_resource type="AudioStream" uid="uid://bosfqwctjg3rn" path="res://Sounds/Button Click.mp3" id="11_qrn07"]
 
@@ -455,6 +455,14 @@ text = "Leaderboard"
 icon = ExtResource("4_qrn07")
 alignment = 0
 expand_icon = true
+
+[node name="FadeRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1942.0
+offset_bottom = 1099.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Options2/Back2" to="Options2/Back2" method="_on_pressed"]
 [connection signal="pressed" from="Credits2/Back2" to="Credits2/Back2" method="_on_pressed"]

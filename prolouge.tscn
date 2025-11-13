@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgvs7nkj8m0v4" path="res://Cutscenes/contract.PNG" id="2_psb7e"]
 [ext_resource type="FontFile" uid="uid://dpyup6ovibiry" path="res://Fonts/League_Spartan/static/LeagueSpartan-Bold.ttf" id="3_6484v"]
 [ext_resource type="Texture2D" uid="uid://cgsgod3njpxy5" path="res://Sprites/Characters/ALONA.PNG" id="4_lx2lb"]
+[ext_resource type="VideoStream" uid="uid://d3tynfcxpprqd" path="res://Cutscenes/prolouge.ogv" id="5_2pt07"]
 [ext_resource type="AudioStream" uid="uid://bosfqwctjg3rn" path="res://Sounds/Button Click.mp3" id="5_lx2lb"]
 [ext_resource type="AudioStream" uid="uid://mcref7i4xbqr" path="res://Sounds/Text.mp3" id="6_2pt07"]
 
@@ -20,8 +21,6 @@ bg_color = Color(0, 0, 0, 0.54509807)
 [sub_resource type="LabelSettings" id="LabelSettings_qpmw2"]
 font = ExtResource("3_6484v")
 font_size = 46
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_u63lq"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u63lq")
@@ -82,7 +81,6 @@ offset_left = 90.0
 offset_top = 26.0
 offset_right = 1349.0
 offset_bottom = 174.0
-text = "It’s a new day at work, another day to create solutions. "
 label_settings = SubResource("LabelSettings_qpmw2")
 autowrap_mode = 3
 
@@ -100,7 +98,7 @@ expand_mode = 1
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1920.0
 offset_bottom = 1080.0
-stream = SubResource("VideoStreamTheora_u63lq")
+stream = ExtResource("5_2pt07")
 
 [node name="FadeRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)

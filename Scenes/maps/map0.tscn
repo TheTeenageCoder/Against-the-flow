@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://nyx6q6otoxw2"]
+[gd_scene load_steps=15 format=3 uid="uid://nyx6q6otoxw2"]
 
 [ext_resource type="Script" uid="uid://c6k546j3ulcfd" path="res://Scripts/coordinates.gd" id="1_na4y3"]
 [ext_resource type="PackedScene" uid="uid://bhmpnisn7iijt" path="res://cube.tscn" id="2_gtvy4"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://tiwfgnj2jegp" path="res://Scripts/pipesHandler.gd" id="5_57qb2"]
 [ext_resource type="ArrayMesh" uid="uid://bhjhfbx30b6o3" path="res://Models/map1Buildings/Sincerra.obj" id="5_s5775"]
 [ext_resource type="PackedScene" uid="uid://dm82vx7xmblul" path="res://Scenes/pipes/output.tscn" id="6_vl4cn"]
+[ext_resource type="ArrayMesh" uid="uid://chg4hv3lij75i" path="res://Models/map1Buildings/Sincerra Rocks.obj" id="8_f5f1m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chvkw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5775"]
 albedo_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
@@ -39,2082 +42,2602 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 [node name="MeshInstance3D100" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D108" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D109" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D101" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D102" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D103" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D104" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D105" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D106" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D107" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D110" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D111" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D112" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D113" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D114" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D115" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D116" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D117" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D118" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D119" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D120" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D121" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D122" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D123" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D124" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D125" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D126" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D127" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D128" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D129" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D130" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D131" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D132" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D133" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D134" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D135" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D136" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D137" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D138" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D139" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D140" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D141" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D142" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D143" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D144" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D145" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D146" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D147" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D148" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D149" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D150" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D151" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D152" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D153" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D154" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D155" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D156" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D157" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D158" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D159" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D160" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D161" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D162" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D163" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D164" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D165" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D166" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D167" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D168" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D169" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D170" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D171" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D172" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D173" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D174" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D175" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D176" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D177" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D178" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D179" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D180" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D200" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D201" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D202" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D203" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D204" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D205" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D206" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D207" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D208" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D209" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D210" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D211" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D212" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D213" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D214" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D215" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D216" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D217" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D218" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D220" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D221" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D222" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D223" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D224" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D225" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D226" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D227" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D228" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D229" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D219" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D181" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D182" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D183" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D184" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D185" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D186" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D187" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D188" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D189" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D190" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D191" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D192" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D193" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D194" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D195" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D196" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D197" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D198" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D199" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D620" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D621" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D622" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D623" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D624" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D625" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D626" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D627" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D628" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D629" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D630" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D631" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D632" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D633" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D634" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D635" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D636" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D637" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D638" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D639" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D640" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D641" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D642" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D643" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D644" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D645" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D646" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D647" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D648" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D649" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D650" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D651" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D652" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D653" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D654" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D655" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D656" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D657" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D658" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D659" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D660" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D661" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D662" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D663" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D664" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D665" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D666" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D667" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D668" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D669" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D670" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D671" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D672" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D673" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D674" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D675" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D676" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D677" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D678" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D679" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D680" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D681" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D682" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D683" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D684" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D685" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D686" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D687" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D688" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D689" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D690" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D691" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D692" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D693" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D694" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D695" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D696" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D697" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D698" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D699" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D700" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D701" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D702" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D703" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D704" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D705" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D706" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D707" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D708" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D709" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D710" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D711" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D712" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D713" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D714" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D715" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D716" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D717" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D718" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D719" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D720" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D721" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D722" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D723" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D724" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D725" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D726" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D727" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D728" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D729" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D730" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D731" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D732" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D733" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D734" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D735" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D736" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D737" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D738" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D739" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D740" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D741" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D742" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D743" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D744" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D745" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D746" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D747" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D748" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D749" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1140" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1141" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1142" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1143" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1144" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1145" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1146" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1147" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1148" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1149" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1150" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1151" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1152" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1153" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1154" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1155" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1156" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1157" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1158" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1159" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1160" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1161" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1162" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1163" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1164" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1165" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1166" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1167" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1168" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1169" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1170" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1171" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1172" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1173" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1174" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1175" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1176" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1177" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1178" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1179" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1180" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1181" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1182" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1183" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1184" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1185" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1186" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1187" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1188" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1189" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1190" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1191" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1192" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1193" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1194" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1195" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1196" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1197" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1198" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1199" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1200" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1201" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1202" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1203" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1204" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1205" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1206" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1207" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1208" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1209" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1210" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1211" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1212" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1213" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1214" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1215" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1216" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1217" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1218" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1219" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1220" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1221" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1222" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1223" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1224" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1225" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1226" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1227" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1228" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1229" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1230" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1231" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1232" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1233" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1234" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1235" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1236" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1237" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1238" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1239" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1240" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1241" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1242" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1243" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1244" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1245" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1246" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1247" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1248" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1249" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1250" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1251" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1252" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1253" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1254" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1255" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1256" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1257" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1258" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1259" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1260" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1261" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1262" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1263" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1264" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1265" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1266" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1267" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1268" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1269" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1660" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1661" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1662" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1663" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1664" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1665" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1666" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1667" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1668" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1669" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, 0)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1670" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1671" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1672" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1673" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1674" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1675" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1676" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1677" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1678" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1679" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -1)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1680" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1681" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1682" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1683" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1684" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1685" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1686" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1687" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1688" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1689" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -2)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1690" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1691" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1692" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1693" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1694" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1695" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1696" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1697" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1698" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1699" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -3)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1700" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1701" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1702" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1703" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1704" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1705" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1706" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1707" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1708" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1709" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -4)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1710" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1711" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1712" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1713" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1714" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1715" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1716" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1717" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1718" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1719" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1720" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1721" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1722" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1723" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1724" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1725" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1726" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1727" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1728" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1729" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1730" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1731" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1732" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1733" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1734" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1735" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1736" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1737" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1738" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1739" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1740" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1741" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1742" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1743" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1744" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1745" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1746" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1747" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1748" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1749" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1750" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1751" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1752" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1753" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1754" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1755" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1756" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1757" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1758" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1759" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -8)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1760" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1761" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1762" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1763" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1764" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1765" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1766" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1767" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1768" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1769" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -9)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1770" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -7)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1771" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1772" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1773" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1774" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1775" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1776" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1777" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1778" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1779" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -5)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1780" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1781" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 8, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1782" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 9, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1783" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 1, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1784" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 2, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1785" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 3, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1786" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 4, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1787" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 5, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1788" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 6, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="MeshInstance3D1789" parent="Layer0" instance=ExtResource("2_gtvy4")]
 transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 7, 0, -6)
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chvkw")
 
 [node name="Layer1" type="Node3D" parent="."]
 
@@ -3040,6 +3563,42 @@ visible = false
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.3, 0)
 visible = false
 
+[node name="Building 78" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, -0.1, -1)
+visible = false
+
+[node name="Building 79" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 3, -0.1, -2)
+visible = false
+
+[node name="Building 80" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, -0.1, -1)
+visible = false
+
+[node name="Building 81" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 6, -0.1, -4)
+visible = false
+
+[node name="Building 83" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 5, -0.1, -7)
+visible = false
+
+[node name="Building 84" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, -0.1, -9)
+visible = false
+
+[node name="Building 85" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 3, -0.1, -9)
+visible = false
+
+[node name="Building 86" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 1, -0.1, -8)
+visible = false
+
+[node name="Building 82" parent="Assets" instance=ExtResource("4_qva1w")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 9, -0.1, -2)
+visible = false
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.5, 0.32619286, 0.5)
 mesh = ExtResource("5_s5775")
@@ -3060,3 +3619,7 @@ visible = false
 layers = 512
 material_override = SubResource("StandardMaterial3D_1qk88")
 mesh = SubResource("BoxMesh_s5775")
+
+[node name="SincerraRocks" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 9.455, -0.06972182, 0.5)
+mesh = ExtResource("8_f5f1m")

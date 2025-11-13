@@ -17,6 +17,3 @@ func world_to_grid(world_pos: Vector3) -> Vector3i:
 
 func grid_to_world(grid_pos: Vector3i) -> Vector3:
 	return Vector3(grid_pos.x * tile_size, grid_pos.y * tile_size, grid_pos.z * tile_size)
-
-
-	

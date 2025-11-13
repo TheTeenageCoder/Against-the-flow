@@ -10,7 +10,8 @@ extends Node2D
 @onready var leaderboard: Button = $Leaderboard
 @onready var bg: TextureRect = $Background
 @onready var fx: GPUParticles2D = $GPUParticles2D
-@onready var click_sound: AudioStreamPlayer = $ClickSound  # <-- Add this in your scene
+@onready var click_sound: AudioStreamPlayer = $ClickSound  
+@onready var fade_rect: ColorRect = $FadeRect
 
 func _ready() -> void:
 	_setup_button(start, Callable(self, "_on_start_pressed"))
@@ -60,6 +61,7 @@ func _on_any_button_pressed() -> void:
 
 # --- Button pressed handlers ---
 func _on_start_pressed() -> void:
+	await fade("out")
 	get_tree().change_scene_to_file("res://scene.tscn")
 
 func _on_options_pressed() -> void:
@@ -73,3 +75,14 @@ func _on_exit_pressed() -> void:
 
 func _on_leaderboard_pressed() -> void:
 	pass
+
+func fade(direction: String, duration: float = 1.0) -> void:
+	if direction == "in":
+		fade_rect.modulate.a = 1.0
+	else:
+		fade_rect.modulate.a = 0.0
+
+	var target_alpha: float = 0.0 if direction == "in" else 1.0
+	var tween := create_tween()
+	tween.tween_property(fade_rect, "modulate:a", target_alpha, duration)
+	await tween.finished

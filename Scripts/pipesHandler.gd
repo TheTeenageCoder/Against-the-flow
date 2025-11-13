@@ -37,7 +37,7 @@ func process_all_drains():
 	for drain in get_node("surface").get_children():
 		var pos = drain.global_position
 		var posV2 = Vector2(pos.x, pos.z) 
-		var power = 0.5 if gameManager.upgradedDrains.has(posV2) else 0.25
+		var power = 0.375 if gameManager.upgradedDrains.has(posV2) else 0.25
 		if gameManager.pipes.has(str(posV2)):
 			gameManager.drains[str(posV2)]= [true, power]
 	#print(gameManager.drains)

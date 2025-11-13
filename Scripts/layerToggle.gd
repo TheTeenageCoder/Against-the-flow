@@ -11,16 +11,38 @@ const MIN_SCALE = Vector3(0.001, 0.001, 0.001)
 
 var is_animating = false
 
+var save_path := "user://data.json"
+
+var act
+
+func load_game():
+	if not FileAccess.file_exists(save_path):
+		print("⚠ No save file found.")
+		return
+	
+	var file = FileAccess.open(save_path, FileAccess.READ)
+	var json_text = file.get_as_text()
+	file.close()
+
+	var result = JSON.parse_string(json_text)
+	if result != null:
+		act = result
+	else:
+		print("❌ Failed to parse JSON")
+
 func _ready():
-	while not gameManager.is_loaded:
-		await get_tree().process_frame
+	load_game()
 	
-	for child in $"../../../..".get_children():
-		if child is Node3D:
-			map = child
+	if act != -1:
+		while not gameManager.is_loaded:
+			await get_tree().process_frame
+		
+		for child in $"../../../..".get_children():
+			if child is Node3D:
+				map = child
 	
-	if map.get_node("gridPlane").mesh.size.x == 25:
-		STAGGER_TIME = 0.00001
+		if map.get_node("gridPlane").mesh.size.x == 25:
+			STAGGER_TIME = 0.00001
 
 func _on_button_pressed():
 	if is_animating:

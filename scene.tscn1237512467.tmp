@@ -1,0 +1,1869 @@
+[gd_scene load_steps=51 format=3 uid="uid://o2tk3jns8edl"]
+
+[ext_resource type="Script" uid="uid://dkr855jqjki0g" path="res://Scripts/camera.gd" id="1_iss77"]
+[ext_resource type="Script" uid="uid://bsqmkn30nnc3l" path="res://Scripts/gridInterc.gd" id="1_nxogm"]
+[ext_resource type="Script" uid="uid://c6k546j3ulcfd" path="res://Scripts/coordinates.gd" id="1_ulcgi"]
+[ext_resource type="PackedScene" uid="uid://bhmpnisn7iijt" path="res://Scenes/cube.tscn" id="3_3253y"]
+[ext_resource type="Shader" uid="uid://yqac52fnvbdy" path="res://Shaders/grid.gdshader" id="4_m7jmp"]
+[ext_resource type="Script" uid="uid://cvb6m1rkatvxa" path="res://Scripts/ghostBlocks.gd" id="4_u3cyc"]
+[ext_resource type="Script" uid="uid://b5f2vr8q7vbyh" path="res://Scripts/UI.gd" id="6_g6g5t"]
+[ext_resource type="Texture2D" uid="uid://bkxkj0quyql2c" path="res://Sprites/Sun.svg" id="6_y2354"]
+[ext_resource type="FontFile" uid="uid://brqom5875s7v4" path="res://Fonts/League_Spartan/static/LeagueSpartan-SemiBold.ttf" id="7_5juve"]
+[ext_resource type="Texture2D" uid="uid://bb435457sqjyh" path="res://Sprites/Pause.svg" id="7_xlvrw"]
+[ext_resource type="Texture2D" uid="uid://llyn1bkwt8ov" path="res://Sprites/fastForward.svg" id="8_73fnb"]
+[ext_resource type="Texture2D" uid="uid://c84r86uoeaq6s" path="res://Sprites/building.svg" id="10_8hm71"]
+[ext_resource type="FontFile" uid="uid://71e7rsw27clo" path="res://Fonts/League_Spartan/static/LeagueSpartan-ExtraBold.ttf" id="10_fy5k1"]
+[ext_resource type="Texture2D" uid="uid://dsuors171wggf" path="res://Sprites/grid.svg" id="11_223my"]
+[ext_resource type="Script" uid="uid://c32dnwlga3p15" path="res://Scripts/visibilityToggle.gd" id="11_wncyr"]
+[ext_resource type="Texture2D" uid="uid://o4y5ljy5vpwr" path="res://Sprites/pipes.svg" id="12_17rhs"]
+[ext_resource type="Texture2D" uid="uid://bbblx5y4gqalk" path="res://Sprites/fx.svg" id="13_8j1ou"]
+[ext_resource type="Texture2D" uid="uid://t3w1nr4odc86" path="res://Sprites/Drainage.svg" id="16_223my"]
+[ext_resource type="Script" uid="uid://dvlpl32uunhjf" path="res://Scripts/toolSelect.gd" id="16_xb05w"]
+[ext_resource type="Texture2D" uid="uid://dj0n6s55225pm" path="res://Sprites/pipe.svg" id="17_xpof7"]
+[ext_resource type="Texture2D" uid="uid://cdcgobihmmqm0" path="res://Sprites/hammer.svg" id="18_302uq"]
+[ext_resource type="Texture2D" uid="uid://cdqbod0grdrx8" path="res://Sprites/wrench.svg" id="19_1q4c1"]
+[ext_resource type="Texture2D" uid="uid://82q7fdhotev6" path="res://Sprites/fix.svg" id="20_aobyt"]
+[ext_resource type="Texture2D" uid="uid://borekd64b75y7" path="res://Sprites/settings.svg" id="21_302uq"]
+[ext_resource type="Texture2D" uid="uid://c0l0i84b2osmr" path="res://Sprites/help.svg" id="22_aobyt"]
+[ext_resource type="Texture2D" uid="uid://c2reebuin82bv" path="res://Sprites/info.svg" id="23_i6j5g"]
+[ext_resource type="FontFile" uid="uid://dpyup6ovibiry" path="res://Fonts/League_Spartan/static/LeagueSpartan-Bold.ttf" id="24_i6j5g"]
+[ext_resource type="Script" uid="uid://dh8hekrwv0s2x" path="res://Scripts/gameManager.gd" id="25_g6g5t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7jmp"]
+albedo_color = Color(0.60784316, 0.4627451, 0.3254902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y2354"]
+size = Vector2(10, 10)
+subdivide_width = 5
+subdivide_depth = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7jmp"]
+render_priority = 0
+shader = ExtResource("4_m7jmp")
+shader_parameter/line_color = Color(1, 1, 1, 0.2)
+shader_parameter/grid_size = 0.1
+
+[sub_resource type="Environment" id="Environment_m7jmp"]
+background_mode = 1
+background_color = Color(0.5294118, 0.80784315, 0.92156863, 1)
+tonemap_mode = 3
+tonemap_exposure = 1.1
+ssr_fade_in = 0.15528972
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni31j"]
+bg_color = Color(18.892157, 18.892157, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlvrw"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5c1cw"]
+font = ExtResource("7_5juve")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5juve"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy5k1"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j1ou"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c1cw"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akxrc"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gu47o"]
+font = ExtResource("7_5juve")
+font_color = Color(0, 0.7176471, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17rhs"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_akxrc"]
+line_spacing = 0.0
+font = ExtResource("10_fy5k1")
+font_size = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gu47o"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_width_left = 3
+border_width_top = 4
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hm71"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_width_left = 3
+border_width_top = 4
+border_width_right = 3
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6g5t"]
+bg_color = Color(0, 0, 0, 0.5411765)
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iss77"]
+font = ExtResource("24_i6j5g")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6j5g"]
+line_spacing = 4.0
+font = ExtResource("24_i6j5g")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6g5t"]
+font = ExtResource("24_i6j5g")
+font_size = 30
+font_color = Color(0.8862745, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb05w"]
+bg_color = Color(0, 0, 0, 0.5411765)
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.76604444, -0.41317585, 0.4924039, 0, 0.7660444, 0.64278764, -0.6427876, -0.4924038, 0.5868241, 11.464323, 5.970597, 4.026436)
+fov = 56.3
+script = ExtResource("1_iss77")
+
+[node name="map" type="Node3D" parent="."]
+script = ExtResource("1_ulcgi")
+
+[node name="Layer0" type="Node3D" parent="map"]
+
+[node name="MeshInstance3D100" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D108" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D109" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D101" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D102" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D103" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D104" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D105" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D106" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D107" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D110" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D111" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D112" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D113" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D114" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D115" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D116" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D117" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D118" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D119" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D120" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D121" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D122" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D123" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D124" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D125" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D126" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D127" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D128" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D129" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D130" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D131" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D132" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D133" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D134" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D135" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D136" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D137" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D138" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D139" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D140" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D141" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D142" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D143" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D144" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D145" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D146" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D147" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D148" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D149" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D150" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D151" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D152" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D153" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D154" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D155" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D156" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D157" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D158" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D159" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D160" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D161" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D162" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D163" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D164" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D165" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D166" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D167" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D168" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D169" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D170" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D171" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D172" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D173" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D174" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D175" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D176" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D177" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D178" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D179" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D180" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D200" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D201" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D202" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D203" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D204" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D205" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D206" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D207" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D208" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D209" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D210" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D211" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D212" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D213" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D214" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D215" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D216" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D217" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D218" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -8)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D220" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D221" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D222" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D223" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D224" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D225" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D226" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D227" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D228" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D229" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -9)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D219" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -7)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D181" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D182" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D183" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D184" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D185" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D186" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D187" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D188" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D189" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D190" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D191" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 8, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D192" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 9, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D193" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 1, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D194" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D195" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 3, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D196" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 4, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D197" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 5, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D198" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 6, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D199" parent="map/Layer0" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 7, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="Layer1" type="Node3D" parent="map"]
+
+[node name="MeshInstance3D100" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D108" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D109" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D101" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D102" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D103" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D104" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D105" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D106" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D107" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, 0)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D110" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D111" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D112" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D113" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D114" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D115" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D116" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D117" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D118" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D119" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -1)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D120" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D121" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D122" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D123" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D124" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D125" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D126" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D127" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D128" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D129" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -2)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D130" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D131" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D132" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D133" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D134" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D135" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D136" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D137" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D138" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D139" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -3)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D140" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D141" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D142" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D143" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D144" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D145" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D146" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D147" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D148" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D149" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -4)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D150" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D151" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D152" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D153" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D154" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D155" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D156" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D157" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D158" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D159" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D160" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D161" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D162" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D163" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D164" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D165" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D166" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D167" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D168" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D169" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D170" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D171" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D172" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D173" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D174" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D175" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D176" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D177" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D178" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D179" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D180" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D200" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D201" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D202" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D203" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D204" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D205" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D206" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D207" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D208" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D209" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D210" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D211" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D212" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D213" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D214" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D215" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D216" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D217" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D218" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -8)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D220" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D221" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D222" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D223" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D224" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D225" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D226" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D227" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D228" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D229" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -9)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D219" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -7)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D181" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D182" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D183" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D184" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D185" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D186" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D187" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D188" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D189" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -5)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D190" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 0, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D191" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 8, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D192" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 9, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D193" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 1, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D194" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 2, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D195" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 3, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D196" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 4, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D197" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 5, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D198" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 6, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="MeshInstance3D199" parent="map/Layer1" instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, -3.8442614, 0, 0, 0, 1, 7, -2.0215003, -6)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7jmp")
+
+[node name="gridPlane" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.12240744, -4.5)
+mesh = SubResource("PlaneMesh_y2354")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_m7jmp")
+
+[node name="Assets" type="Node3D" parent="map"]
+
+[node name="Placed" type="Node3D" parent="map"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.11286122, -0.62103796, 0.77561206, -0.23696648, 0.74125165, 0.6280069, -0.96493995, -0.25467172, -0.06350661, 10.796472, 4.692764, -6.7427692)
+light_color = Color(1, 1, 0.5074483, 1)
+light_energy = 1.5
+light_indirect_energy = 1.2
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_normal_bias = 1.0
+
+[node name="ghostBlocks" type="Node3D" parent="."]
+
+[node name="logic" type="Node3D" parent="ghostBlocks"]
+script = ExtResource("4_u3cyc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m7jmp")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("6_g6g5t")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="topLeft" type="HBoxContainer" parent="UI/Control"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+offset_right = 850.0
+offset_bottom = 120.0
+theme_override_constants/separation = 0
+
+[node name="Phase" type="Panel" parent="UI/Control/topLeft"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ni31j")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control/topLeft/Phase"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_y2354")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/topLeft"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/topLeft/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Place" type="Panel" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xlvrw")
+
+[node name="Label" type="Label" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/Place"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MANILA"
+label_settings = SubResource("LabelSettings_5c1cw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Panel" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5juve")
+
+[node name="Label" type="Label" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/Time"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nov 2025"
+label_settings = SubResource("LabelSettings_5c1cw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause" type="Panel" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fy5k1")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/Pause"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_xlvrw")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8j1ou")
+
+[node name="DT" type="Panel" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5c1cw")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/DT"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_73fnb")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/DT"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8j1ou")
+
+[node name="Money" type="Panel" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_akxrc")
+
+[node name="Label" type="Label" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/Money"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "₱ 300,000,000"
+label_settings = SubResource("LabelSettings_gu47o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="visToggle" type="MarginContainer" parent="UI/Control/topLeft/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+script = ExtResource("11_wncyr")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Control/topLeft/VBoxContainer/visToggle"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Building" type="TextureButton" parent="UI/Control/topLeft/VBoxContainer/visToggle/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("10_8hm71")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Grid" type="TextureButton" parent="UI/Control/topLeft/VBoxContainer/visToggle/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("11_223my")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Pipes" type="TextureButton" parent="UI/Control/topLeft/VBoxContainer/visToggle/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("12_17rhs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Fx" type="TextureButton" parent="UI/Control/topLeft/VBoxContainer/visToggle/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("13_8j1ou")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="topRight" type="HBoxContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Layer" type="Panel" parent="UI/Control/topRight"]
+custom_minimum_size = Vector2(120, 0)
+layout_direction = 3
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_17rhs")
+
+[node name="Label" type="Label" parent="UI/Control/topRight/Layer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "L1"
+label_settings = SubResource("LabelSettings_akxrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="right" type="HBoxContainer" parent="UI/Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -150.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="inventory" type="VBoxContainer" parent="UI/Control/right"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+script = ExtResource("16_xb05w")
+
+[node name="Drain" type="Panel" parent="UI/Control/right/inventory"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gu47o")
+
+[node name="TextureButton" type="TextureButton" parent="UI/Control/right/inventory/Drain"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("16_223my")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Pipes" type="Panel" parent="UI/Control/right/inventory"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gu47o")
+
+[node name="TextureButton" type="TextureButton" parent="UI/Control/right/inventory/Pipes"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("17_xpof7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Demolish" type="Panel" parent="UI/Control/right/inventory"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gu47o")
+
+[node name="TextureButton" type="TextureButton" parent="UI/Control/right/inventory/Demolish"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("18_302uq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Upgrade" type="Panel" parent="UI/Control/right/inventory"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gu47o")
+
+[node name="TextureButton" type="TextureButton" parent="UI/Control/right/inventory/Upgrade"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("19_1q4c1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Fix" type="Panel" parent="UI/Control/right/inventory"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8hm71")
+
+[node name="TextureButton" type="TextureButton" parent="UI/Control/right/inventory/Fix"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("20_aobyt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 132.0
+grow_vertical = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="botLeft" type="HBoxContainer" parent="UI/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Settings" type="TextureButton" parent="UI/Control/MarginContainer/botLeft"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture_normal = ExtResource("21_302uq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Help" type="TextureButton" parent="UI/Control/MarginContainer/botLeft"]
+custom_minimum_size = Vector2(39, 39)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("22_aobyt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Info" type="TextureButton" parent="UI/Control/MarginContainer/botLeft"]
+custom_minimum_size = Vector2(41, 0)
+layout_mode = 2
+texture_normal = ExtResource("23_i6j5g")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="leftSelect" type="HBoxContainer" parent="UI/Control"]
+custom_minimum_size = Vector2(222, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.223
+anchor_bottom = 0.223
+offset_left = -250.0
+offset_top = 0.1599884
+offset_bottom = 120.15999
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Details" type="Panel" parent="UI/Control/leftSelect"]
+custom_minimum_size = Vector2(102, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6g5t")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/leftSelect/Details"]
+layout_mode = 1
+offset_right = 133.0
+offset_bottom = 45.0
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/leftSelect/Details/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="UI/Control/leftSelect/Details/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "DRAIN"
+label_settings = SubResource("LabelSettings_iss77")
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="UI/Control/leftSelect/Details/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 1"
+label_settings = SubResource("LabelSettings_i6j5g")
+vertical_alignment = 1
+
+[node name="Level2" type="Label" parent="UI/Control/leftSelect/Details/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "₱ 300k"
+label_settings = SubResource("LabelSettings_g6g5t")
+vertical_alignment = 1
+
+[node name="Icon" type="Panel" parent="UI/Control/leftSelect"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xb05w")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control/leftSelect/Icon"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_223my")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/Control"]
+custom_minimum_size = Vector2(20, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_right = 4.0
+offset_bottom = 13.5
+grow_vertical = 2
+fill_mode = 3
+show_percentage = false
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("25_g6g5t")
+
+[node name="gridInteraction" type="Node3D" parent="GameManager"]
+script = ExtResource("1_nxogm")

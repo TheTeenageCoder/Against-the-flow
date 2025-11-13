@@ -3,7 +3,7 @@ extends Node3D
 @export var camera: Camera3D
 @export var ghost_scene: PackedScene
 
-@onready var map 
+@onready var map = $"../../map"
 @onready var gameManager = get_node("..")
 @onready var layer1 
 @onready var toolSFX = $"../../UI/Control/toolSFX"
@@ -50,17 +50,38 @@ func update_obj(tool):
 	
 	orientation = Vector3(0,0,0)
 
-func _ready():
-	set_process(false)
-	while not gameManager.is_loaded:
-		await get_tree().process_frame
-	set_process(true)
+var save_path := "user://data.json"
+
+var act
+
+func load_game():
+	if not FileAccess.file_exists(save_path):
+		print("⚠ No save file found.")
+		return
 	
-	for child in  $"../..".get_children():
-		if child is Node3D:
-			map = child
-	layer1 = map.get_node("Layer0")
-	print(layer1)
+	var file = FileAccess.open(save_path, FileAccess.READ)
+	var json_text = file.get_as_text()
+	file.close()
+
+	var result = JSON.parse_string(json_text)
+	if result != null:
+		act = result
+	else:
+		print("❌ Failed to parse JSON")
+
+func _ready():
+	load_game()
+	set_process(false)
+	if act != -1:
+		while not gameManager.is_loaded:
+			await get_tree().process_frame
+		set_process(true)
+		
+		for child in  $"../..".get_children():
+			if child is Node3D:
+				map = child
+		layer1 = map.get_node("Layer0")
+	
 	if camera == null:
 		camera = get_viewport().get_camera_3d()
 	
@@ -165,19 +186,20 @@ func place_obj(tool, pos: Vector3):
 			toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
 			toolSFX.play()
 			return
-			
-	var posV2 = Vector2(pos.x, pos.z)
+	
 	if layer1.visible == true:
 		for part in map.get_node("Assets").get_children():
-			var partGPV2 = Vector2(part.global_position.x, part.global_position.z)
-			if posV2 == partGPV2:
+			if part.global_position == Vector3(pos.x, 0.3, pos.z):
 				notif.notify("Tile contains an object", Color.RED)
 				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
 				toolSFX.play()
-				if gameManager.needInvalidDialouge:
-					gameManager.dialougeIndex += 1
-					print("From Invalid placing: " + str(gameManager.dialougeIndex))
-					gameManager.needInvalidDialouge = false
+				return
+	else:
+		for part in map.get_node("Assets").get_children():
+			if part.global_position == Vector3(pos.x, -0.1, pos.z):
+				notif.notify("Tile contains an object", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
 				return
 		
 	var new_obj
@@ -236,8 +258,8 @@ func place_obj(tool, pos: Vector3):
 								objName = "lshape"
 								formalName = "L-Shape"
 
-						
 						var replaced = load("res://Scenes/pipes/drain/" + objName + ".tscn").instantiate()
+						
 						if gameManager.pipesUpgraded:
 							replaced.get_node("mesh").mesh = load("res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - "+formalName+".obj.obj")
 						placed_objects.add_child(replaced)
@@ -377,7 +399,11 @@ func place_obj(tool, pos: Vector3):
 					var current = target
 					while current and current.get_parent() and not current.get_parent().name in ["surface", "under"]:
 						current = current.get_parent()
-
+					#var currentV2pos = Vector2(current.global_position.x, current.global_position.z)
+					if gameManager.upgradedDrains.has(Vector2(pos.x, pos.z)):
+						notif.notify("Drain already upgraded", Color.RED)
+						return
+						
 					if current and current.get_parent() and current.get_parent().name in ["surface", "under"]:
 						if current is MeshInstance3D:
 							@warning_ignore("confusable_local_declaration")
@@ -396,10 +422,8 @@ func place_obj(tool, pos: Vector3):
 					toolSFX.play()
 					return
 				for part in $"../ghostDupes".get_children():
-					print(part)
 					var area = part.get_node("Area3D")
 					var bodies = area.get_overlapping_bodies()
-					print(bodies)
 					if bodies.is_empty():
 						notif.notify("Hover over an object", Color.RED)
 						toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
@@ -414,10 +438,11 @@ func place_obj(tool, pos: Vector3):
 					while current and current.get_parent() and not current.get_parent().name in ["surface", "under"]:
 						current = current.get_parent()
 
-					print(current)
+					
 					if current and current.get_parent() and current.get_parent().name in ["surface", "under"]:
 						if current.get_node("mesh"):
 							var meshRes = current.get_node("mesh").mesh.resource_path
+							print(meshRes)
 							var isDrain = true  if "Drain" in meshRes else false
 							var meshType
 							var newMesh
@@ -429,6 +454,7 @@ func place_obj(tool, pos: Vector3):
 								newMesh = load("res://Models/Pipes/Upgraded Pipe - "+meshType+".obj")
 							
 							current.get_node("mesh").mesh = newMesh
+							part.queue_free()
 							gameManager.money -= (bodies.size()+1)*gameManager.objValues["pipe"]+1000000
 					else:
 						print("Could not find root for:", target.name)

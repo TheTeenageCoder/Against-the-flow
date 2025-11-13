@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://o2tk3jns8edl"]
+[gd_scene load_steps=69 format=3 uid="uid://o2tk3jns8edl"]
 
 [ext_resource type="Script" uid="uid://dkr855jqjki0g" path="res://Scripts/camera.gd" id="1_iss77"]
 [ext_resource type="Script" uid="uid://bsqmkn30nnc3l" path="res://Scripts/gridInterc.gd" id="1_nxogm"]
@@ -7,8 +7,6 @@
 [ext_resource type="Script" uid="uid://b5f2vr8q7vbyh" path="res://Scripts/UI.gd" id="6_g6g5t"]
 [ext_resource type="Texture2D" uid="uid://bkxkj0quyql2c" path="res://Sprites/Sun.svg" id="6_y2354"]
 [ext_resource type="FontFile" uid="uid://brqom5875s7v4" path="res://Fonts/League_Spartan/static/LeagueSpartan-SemiBold.ttf" id="7_5juve"]
-[ext_resource type="Texture2D" uid="uid://420v4a21e4y8" path="res://Sprites/Pause.svg" id="7_xlvrw"]
-[ext_resource type="Texture2D" uid="uid://llyn1bkwt8ov" path="res://Sprites/fastForward.svg" id="8_73fnb"]
 [ext_resource type="Texture2D" uid="uid://c84r86uoeaq6s" path="res://Sprites/building.svg" id="10_8hm71"]
 [ext_resource type="FontFile" uid="uid://71e7rsw27clo" path="res://Fonts/League_Spartan/static/LeagueSpartan-ExtraBold.ttf" id="10_fy5k1"]
 [ext_resource type="Texture2D" uid="uid://dsuors171wggf" path="res://Sprites/grid.svg" id="11_223my"]
@@ -33,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://btmd3wsolb0gh" path="res://Sprites/Pipe L-shape Icon.png" id="28_hyak3"]
 [ext_resource type="PackedScene" path="res://Scenes/notification.tscn" id="28_llic6"]
 [ext_resource type="Script" path="res://Scripts/float_notif.gd" id="28_m514l"]
-[ext_resource type="Texture2D" uid="uid://cgsgod3njpxy5" path="res://Sprites/Characters/ALONA.PNG" id="31_nb0s3"]
+[ext_resource type="Texture2D" uid="uid://b87o534pfxkad" path="res://Sprites/Characters/ALONA.PNG" id="31_nb0s3"]
 [ext_resource type="Texture2D" uid="uid://7r23gnlbv78b" path="res://Sprites/arrowSelect.svg" id="32_iloo5"]
 [ext_resource type="Texture2D" uid="uid://dy8hjgwecikaw" path="res://Sprites/caution.svg" id="33_g4bmd"]
 [ext_resource type="AudioStream" uid="uid://mcref7i4xbqr" path="res://Sounds/Text.mp3" id="33_x5hgh"]
@@ -62,25 +60,6 @@ border_color = Color(1, 1, 1, 1)
 font = ExtResource("7_5juve")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5juve"]
-bg_color = Color(0, 0, 0, 0.54901963)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy5k1"]
-bg_color = Color(0, 0, 0, 0.54901963)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j1ou"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c1cw"]
 bg_color = Color(0, 0, 0, 0.54901963)
 border_width_left = 4
 border_width_top = 4
@@ -230,10 +209,10 @@ fov = 56.3
 script = ExtResource("1_iss77")
 
 [node name="map" parent="." instance=ExtResource("2_yjo7n")]
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.22960785, -0.51447886, 0.8261911, -0.23271544, 0.7952277, 0.55987185, -0.94505227, -0.32081842, 0.06286335, 14.257713, 7.8543086, -5.8182497)
-light_color = Color(1, 1, 0.5074483, 1)
 light_energy = 1.3
 light_indirect_energy = 1.2
 shadow_enabled = true
@@ -321,62 +300,6 @@ text = "Nov 2025"
 label_settings = SubResource("LabelSettings_5c1cw")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Pause" type="Panel" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_fy5k1")
-
-[node name="TextureRect" type="TextureRect" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/Pause"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_xlvrw")
-expand_mode = 1
-
-[node name="Button" type="Button" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/Pause"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_8j1ou")
-
-[node name="DT" type="Panel" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_5c1cw")
-
-[node name="TextureRect" type="TextureRect" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/DT"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_73fnb")
-expand_mode = 1
-
-[node name="Button" type="Button" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer/DT"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_8j1ou")
 
 [node name="Money" type="Panel" parent="UI/Control/topLeft/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
@@ -953,6 +876,7 @@ texture = ExtResource("31_nb0s3")
 expand_mode = 1
 
 [node name="arrow" type="TextureRect" parent="UI/Control"]
+visible = false
 layout_mode = 0
 offset_left = 1800.0
 offset_top = 395.0
@@ -974,7 +898,7 @@ volume_db = -13.165
 
 [node name="rain" type="AudioStreamPlayer" parent="UI/Control"]
 stream = ExtResource("34_7842m")
-volume_db = -15.903
+volume_db = -3.525
 
 [node name="rain2" type="AudioStreamPlayer" parent="UI/Control"]
 stream = ExtResource("35_jrtx1")
@@ -997,6 +921,17 @@ randomness = 0.11
 process_material = SubResource("ParticleProcessMaterial_aobm4")
 
 [node name="FadeRect" type="ColorRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="Black" type="ColorRect" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

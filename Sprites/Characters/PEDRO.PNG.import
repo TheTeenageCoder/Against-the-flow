@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dljst7gp527a7"
-path="res://.godot/imported/PEDRO.PNG-1a38a7f5c9e752cd43a99a88339ebb89.ctex"
+uid="uid://dyty41wcfpq6"
+path="res://.godot/imported/PEDRO.png-6737327a8ccb4c10e5fc3158ad562229.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/PEDRO.PNG"
-dest_files=["res://.godot/imported/PEDRO.PNG-1a38a7f5c9e752cd43a99a88339ebb89.ctex"]
+source_file="res://Sprites/Characters/PEDRO.png"
+dest_files=["res://.godot/imported/PEDRO.png-6737327a8ccb4c10e5fc3158ad562229.ctex"]
 
 [params]
 

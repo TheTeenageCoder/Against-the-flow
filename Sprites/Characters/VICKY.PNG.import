@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cofngqabev46d"
-path="res://.godot/imported/VICKY.PNG-f75609c35c11a26170ddebe9f9c99213.ctex"
+uid="uid://dvfax7os4754b"
+path="res://.godot/imported/VICKY.png-c59102b3cd2cd44b60f98c81d43dbfa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/VICKY.PNG"
-dest_files=["res://.godot/imported/VICKY.PNG-f75609c35c11a26170ddebe9f9c99213.ctex"]
+source_file="res://Sprites/Characters/VICKY.png"
+dest_files=["res://.godot/imported/VICKY.png-c59102b3cd2cd44b60f98c81d43dbfa2.ctex"]
 
 [params]
 
