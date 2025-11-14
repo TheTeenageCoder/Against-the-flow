@@ -19780,10 +19780,9 @@ script = ExtResource("5_pec4x")
 [node name="output" parent="Placed/under" instance=ExtResource("6_1pjj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.551344, -0.1, -2)
 
-[node name="TigasuloRocks" type="MeshInstance3D" parent="Placed/under"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.1, 0.5)
-mesh = ExtResource("5_qwv1o")
-skeleton = NodePath("../../..")
+[node name="broken" type="Node3D" parent="Placed"]
+
+[node name="clogged" type="Node3D" parent="Placed"]
 
 [node name="flood" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 12, 0.35, -12)
@@ -19791,3 +19790,7 @@ visible = false
 layers = 512
 material_override = SubResource("StandardMaterial3D_1qk88")
 mesh = SubResource("BoxMesh_s5775")
+
+[node name="TigasuloRocks" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.1, 0.5)
+mesh = ExtResource("5_qwv1o")

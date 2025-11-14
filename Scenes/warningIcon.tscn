@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8u2pfajqj8s2"]
+
+[ext_resource type="Texture2D" uid="uid://dy8hjgwecikaw" path="res://Sprites/caution.svg" id="1_2rx52"]
+
+[node name="warningIcon" type="Node3D"]
+top_level = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0, 0)
+billboard = 1
+texture = ExtResource("1_2rx52")

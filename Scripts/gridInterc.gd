@@ -5,7 +5,7 @@ extends Node3D
 
 @onready var map = $"../../map"
 @onready var gameManager = get_node("..")
-@onready var layer1 
+@onready var layer1
 @onready var toolSFX = $"../../UI/Control/toolSFX"
 
 var grid_pos
@@ -30,6 +30,8 @@ func update_obj(tool):
 			ghost_scene = load("res://Scenes/demolish.tscn")
 		"upgrade":
 			ghost_scene = load("res://Scenes/upgrade.tscn")
+		"fix":
+			ghost_scene = load('res://Scenes/fix.tscn')
 			
 	var ghosts = get_children()
 	for parts in ghosts:
@@ -181,7 +183,7 @@ func free_tile(tile = str(grid_pos)):
 
 func place_obj(tool, pos: Vector3):
 	if is_tile_occupied():
-		if tool != "demolish":
+		if tool != "demolish" or tool != "fix":
 			notif.notify("Tile already occupied", Color.RED)
 			toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
 			toolSFX.play()
@@ -209,7 +211,7 @@ func place_obj(tool, pos: Vector3):
 			gameManager.dialougeIndex += 1
 			print("From Pipe placing: " + str(gameManager.dialougeIndex))
 			gameManager.needPipeDialouge = false
-
+			
 	match tool:
 		"drain":
 			if layer1.visible == false:
@@ -222,7 +224,7 @@ func place_obj(tool, pos: Vector3):
 				notif.notify("Not enough money!", Color.RED)
 				return
 
-			gameManager.money -= gameManager.objValues.drain
+			gameManager.money -= gameManager.objValues.drain # Money deduction moved here
 			#gameManager.drains[str(Vector3(pos.x,0.305,pos.y))] = true
 			
 			if drain_scene == null:
@@ -237,37 +239,49 @@ func place_obj(tool, pos: Vector3):
 			
 				
 			var placed_objects = map.get_node("Placed/under")
-			var posUnder = Vector3(pos.x, -0.02437, pos.z)
-			
+			var pos_under_2d = Vector2(pos.x, pos.z)
+
 			for child in placed_objects.get_children():
 				if child is Node3D:
-					if child.global_position.is_equal_approx(posUnder):
-						var objName
-						var formalName
-						match child.get_node("mesh").mesh.resource_path:
-							"res://Models/Pipes/Pipe - Cross.obj", "res://Models/Pipes/Upgraded Pipe - Cross.obj":
-								objName = "cross"
-								formalName = "Cross"
-							"res://Models/Pipes/Pipe - Straight.obj", "res://Models/Pipes/Upgraded Pipe - Straight.obj":
-								objName = 'straight'
-								formalName = "Straight"
-							"res://Models/Pipes/Pipe - T-shape.obj", "res://Models/Pipes/Upgraded Pipe - T-Shape.obj":
-								objName = "tshape"
-								formalName = "T-Shape"
-							"res://Models/Pipes/Pipe - L-shape.obj", "res://Models/Pipes/Upgraded Pipe - L-Shape.obj":
-								objName = "lshape"
-								formalName = "L-Shape"
+					var child_pos_2d = Vector2(child.global_position.x, child.global_position.z)
 
-						var replaced = load("res://Scenes/pipes/drain/" + objName + ".tscn").instantiate()
-						
+					if child_pos_2d.is_equal_approx(pos_under_2d):
+						var mesh_path = child.get_node("mesh").mesh.resource_path
+
+						var obj_name = ""
+						var formal_name = ""
+
+						match mesh_path:
+							"res://Models/Pipes/Pipe - Cross.obj", "res://Models/Pipes/Upgraded Pipe - Cross.obj":
+								obj_name = "cross"
+								formal_name = "Cross"
+
+							"res://Models/Pipes/Pipe - Straight.obj", "res://Models/Pipes/Upgraded Pipe - Straight.obj":
+								obj_name = "straight"
+								formal_name = "Straight"
+
+							"res://Models/Pipes/Pipe - T-shape.obj", "res://Models/Pipes/Upgraded Pipe - T-shape.obj":
+								obj_name = "tshape"
+								formal_name = "T-shape"
+
+							"res://Models/Pipes/Pipe - L-shape.obj", "res://Models/Pipes/Upgraded Pipe - L-shape.obj":
+								obj_name = "lshape"
+								formal_name = "L-shape"
+
+						var replaced = load("res://Scenes/pipes/drain/" + obj_name + ".tscn").instantiate()
+
 						if gameManager.pipesUpgraded:
-							replaced.get_node("mesh").mesh = load("res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - "+formalName+".obj.obj")
+							replaced.get_node("mesh").mesh = load("res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - " + formal_name + ".obj.obj")
+
 						placed_objects.add_child(replaced)
 
-						replaced.global_position = posUnder - Vector3(0,0.075,0)
+						replaced.global_position = Vector3(pos.x, -0.02437 - 0.075, pos.z)
 						replaced.rotation = child.rotation
 						replaced.visible = false
+
 						child.queue_free()
+						break
+
 		"pipe":
 			notif.notify("Select the type of pipe first", Color.RED)
 			toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
@@ -284,7 +298,7 @@ func place_obj(tool, pos: Vector3):
 				notif.notify("Not enough money!", Color.RED)
 				return
 				
-			gameManager.money -= gameManager.objValues.pipe
+			gameManager.money -= gameManager.objValues.pipe # Money deduction moved here
 			
 			pipe_scene = load("res://Scenes/pipes/normal/straight.tscn")
 
@@ -300,7 +314,7 @@ func place_obj(tool, pos: Vector3):
 				notif.notify("Not enough money!", Color.RED)
 				return
 
-			gameManager.money -= gameManager.objValues.pipe
+			gameManager.money -= gameManager.objValues.pipe # Money deduction moved here
 			
 			pipe_scene = load("res://Scenes/pipes/normal/cross.tscn")
 
@@ -316,10 +330,10 @@ func place_obj(tool, pos: Vector3):
 				notif.notify("Not enough money!", Color.RED)
 				return
 
-			gameManager.money -= gameManager.objValues.pipe
+			gameManager.money -= gameManager.objValues.pipe # Money deduction moved here
 			
 			pipe_scene = load("res://Scenes/pipes/normal/tshape.tscn")
-			 
+			
 
 			new_obj = pipe_scene.instantiate()
 		"lshape":
@@ -333,7 +347,7 @@ func place_obj(tool, pos: Vector3):
 				notif.notify("Not enough money!", Color.RED)
 				return
 
-			gameManager.money -= gameManager.objValues.pipe
+			gameManager.money -= gameManager.objValues.pipe # Money deduction moved here
 			
 			pipe_scene = load("res://Scenes/pipes/normal/lshape.tscn")
 
@@ -358,6 +372,51 @@ func place_obj(tool, pos: Vector3):
 			if current and current.get_parent() and current.get_parent().name in ["surface", "under"]:
 				if current.get_parent().name == "surface":
 					free_tile(str(Vector3(current.global_position.x, 0.305, current.global_position.z)))
+					# --- RESTORE ORIGINAL PIPE UNDERNEATH WHEN DRAIN IS DEMOLISHED ---
+					var under_parent = map.get_node("Placed/under")
+					var posUnder = Vector3(current.global_position.x, -0.02437, current.global_position.z)
+					for child in under_parent.get_children():
+						var childposV2 = Vector2(child.global_position.x, child.global_position.z)
+						if child is Node3D and childposV2.is_equal_approx(Vector2(posUnder.x, posUnder.z)):
+							var mesh_path = child.get_node("mesh").mesh.resource_path
+							var original_scene_path = ""
+							match mesh_path:
+								"res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - Cross.obj.obj", "res://Models/Pipes/Drain Pipe/Drain Pipe - Cross.obj":
+									original_scene_path = "res://Scenes/pipes/normal/cross.tscn"
+								"res://Models/Pipes/Drain Pipe/Drain Pipe - Straight.obj", "res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - Straight.obj.obj":
+									original_scene_path = "res://Scenes/pipes/normal/straight.tscn"
+								"res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - T-shape.obj.obj", "res://Models/Pipes/Drain Pipe/Drain Pipe - T-shape.obj":
+									original_scene_path = "res://Scenes/pipes/normal/tshape.tscn"
+								"res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - L-shape.obj.obj", "res://Models/Pipes/Drain Pipe/Drain Pipe - L-shape.obj":
+									original_scene_path = "res://Scenes/pipes/normal/lshape.tscn"
+									
+							if original_scene_path != "":
+								var restored = load(original_scene_path).instantiate()
+								under_parent.add_child(restored)
+								
+								restored.global_position = posUnder
+								restored.rotation = child.rotation
+
+								# Apply upgrade version if needed
+								if gameManager.pipesUpgraded:
+									var path = restored.get_node("mesh").mesh.resource_path
+									var formal = ""
+
+									if "T-Shape" in path or "T-shape" in path:
+										formal = "T-shape"
+									elif "Straight" in path:
+										formal = "Straight"
+									elif "L-Shape" in path or "L-shape" in path:
+										formal = "L-shape"
+									elif "Cross" in path:
+										formal = "Cross"
+
+									if formal != "":
+										restored.get_node("mesh").mesh = load("res://Models/Pipes/Upgraded Pipe - " + formal + ".obj")
+
+
+								child.queue_free()
+
 				else:
 					free_tile(str(Vector3(current.global_position.x, 0.40063, current.global_position.z)))
 				
@@ -381,7 +440,6 @@ func place_obj(tool, pos: Vector3):
 					gameManager.needDemolishDialouge = false
 			else:
 				print("Could not find root for:", target.name)
-
 			return
 		"upgrade":
 			if layer1.visible == true:
@@ -404,6 +462,10 @@ func place_obj(tool, pos: Vector3):
 						notif.notify("Drain already upgraded", Color.RED)
 						return
 						
+					if gameManager.money < gameManager.objValues.drain * 1.1: # Added money check for drain upgrade
+						notif.notify("Not enough money for drain upgrade!", Color.RED) # Added notification for not enough money
+						return # Stop if not enough money
+						
 					if current and current.get_parent() and current.get_parent().name in ["surface", "under"]:
 						if current is MeshInstance3D:
 							@warning_ignore("confusable_local_declaration")
@@ -421,6 +483,15 @@ func place_obj(tool, pos: Vector3):
 					toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
 					toolSFX.play()
 					return
+					
+				var full_pipe_upgrade_cost = (map.get_node("Placed/under").get_children().size()-1)*gameManager.objValues.pipe
+				
+				if gameManager.money < full_pipe_upgrade_cost:
+					notif.notify("Not enough money for pipe system upgrade!", Color.RED) #
+					return
+					
+				gameManager.money -= full_pipe_upgrade_cost 
+					
 				for part in $"../ghostDupes".get_children():
 					var area = part.get_node("Area3D")
 					var bodies = area.get_overlapping_bodies()
@@ -437,13 +508,111 @@ func place_obj(tool, pos: Vector3):
 					var current = target
 					while current and current.get_parent() and not current.get_parent().name in ["surface", "under"]:
 						current = current.get_parent()
-
 					
-					if current and current.get_parent() and current.get_parent().name in ["surface", "under"]:
+					if current and current.get_parent() and current.get_parent().name in ["surface", "under"] and current.name != "output":
+						print(current)
 						if current.get_node("mesh"):
-							var meshRes = current.get_node("mesh").mesh.resource_path
-							print(meshRes)
-							var isDrain = true  if "Drain" in meshRes else false
+							var mesh_res = current.get_node("mesh").mesh.resource_path
+							#print(mesh_res)
+
+							var is_drain = "Drain Pipe" in mesh_res
+
+							var mesh_type := ""
+
+							if "Cross" in mesh_res:
+								mesh_type = "Cross"
+							elif "Straight" in mesh_res:
+								mesh_type = "Straight"
+							elif "T-shape" in mesh_res:
+								mesh_type = "T-shape"
+							elif "L-shape" in mesh_res:
+								mesh_type = "L-shape"
+
+							var new_mesh
+
+							if is_drain:
+								new_mesh = load("res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - " + mesh_type + ".obj.obj")
+							else:
+								new_mesh = load("res://Models/Pipes/Upgraded Pipe - " + mesh_type + ".obj")
+								current.global_position.y -= 0.08
+
+							current.get_node("mesh").mesh = new_mesh
+							
+					else:
+						print("Could not find root for:", target.name)
+						
+				if gameManager.needUpgradeDialouge:
+					gameManager.dialougeIndex += 1
+					print("From upgrade: " + str(gameManager.dialougeIndex))
+			
+				gameManager.pipesUpgraded = true
+				gameManager.objValues.pipe *= 2
+				
+			toolSFX.stream = load("res://Sounds/Demolish.mp3")
+			toolSFX.play()
+			return
+		"fix":
+			var area = get_node("fix/Area3D")
+			var bodies = area.get_overlapping_bodies()
+			if bodies.is_empty():
+				notif.notify("Hover over an object", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
+				return
+
+			var target = bodies[0]
+			if bodies.size() > 1:
+				target = bodies[0] if bodies[0].global_position.y < bodies[1].global_position.y else bodies[1]
+			
+			var current = target
+			while current and current.get_parent() and not current.get_parent().name in ["clogged", "under", "surface"]:
+				current = current.get_parent()
+					
+			if not current.has_node("warningIcon") or current.get_parent().name == "surface":
+				notif.notify("This object is functioning properly", Color.RED)
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
+				return
+			
+			var fix_cost = 500000 
+			
+			if gameManager.money < fix_cost: 
+				notif.notify("Not enough money to fix this object!", Color.RED) 
+				toolSFX.stream = load("res://Sounds/Cannot Place.mp3")
+				toolSFX.play()
+				return 
+					
+			if current and current.get_parent() and current.get_parent().name in ["clogged", "under"]:
+				if current.get_parent().name == "clogged":
+					current.reparent(map.get_node("Placed/surface"))
+				else:
+					#free_tile(str(Vector3(current.global_position.x, 0.40063, current.global_position.z)))
+					var prevOrient = current.rotation
+					var pipeType
+					match current.get_node("mesh").mesh.resource_path:
+						"res://Models/Pipes/Pipe - Cross.obj", "res://Models/Pipes/Upgraded Pipe - Cross.obj", "res://Models/Pipes/Drain Pipe/Drain Pipe - Cross.obj", "res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - Cross.obj.obj":
+							pipeType = "cross"
+						"res://Models/Pipes/Pipe - Straight.obj", "res://Models/Pipes/Upgraded Pipe - Straight.obj", "res://Models/Pipes/Drain Pipe/Drain Pipe - Straight.obj", "res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - Straight.obj.obj":
+							pipeType = 'straight'
+						"res://Models/Pipes/Pipe - T-shape.obj", "res://Models/Pipes/Upgraded Pipe - T-shape.obj", "res://Models/Pipes/Drain Pipe/Drain Pipe - T-shape.obj", "res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - T-shape.obj.obj":
+							pipeType = "tshape"
+						"res://Models/Pipes/Pipe - L-shape.obj", "res://Models/Pipes/Upgraded Pipe - L-shape.obj", "res://Models/Pipes/Drain Pipe/Drain Pipe - L-shape.obj", "res://Models/Pipes/Drain Pipe/Upgraded Drain Pipe - L-shape.obj.obj":
+							pipeType = "lshape"
+					
+					var fixed_scene = load("res://Scenes/pipes/normal/" + pipeType + ".tscn")
+					var drainPos = str(Vector3(current.global_position.x, 0.305, current.global_position.z))
+					if occupied_tiles.has(drainPos):
+						if pipes.has(pipeType):
+							fixed_scene = load("res://Scenes/pipes/drain/" + pipeType + ".tscn")
+							
+					var fixedObj = fixed_scene.instantiate()	
+					map.get_node("Placed/under").add_child(fixedObj)
+					fixedObj.global_position = Vector3(current.global_position.x, -0.02437, current.global_position.z)
+					fixedObj.rotation = prevOrient
+					if gameManager.pipesUpgraded:
+						if fixedObj.get_node("mesh"):
+							var meshRes = fixedObj.get_node("mesh").mesh.resource_path
+							var isDrain = meshRes.contains("Drain Pipe/")
 							var meshType
 							var newMesh
 							if isDrain:
@@ -452,25 +621,25 @@ func place_obj(tool, pos: Vector3):
 							else:
 								meshType = meshRes.trim_suffix(".obj").trim_prefix("res://Models/Pipes/Pipe - ")
 								newMesh = load("res://Models/Pipes/Upgraded Pipe - "+meshType+".obj")
+							fixedObj.get_node("mesh").mesh = newMesh
+							fixedObj.global_position.y -= 0.08
 							
-							current.get_node("mesh").mesh = newMesh
-							part.queue_free()
-							gameManager.money -= (bodies.size()+1)*gameManager.objValues["pipe"]+1000000
-					else:
-						print("Could not find root for:", target.name)
-						
-				gameManager.dialougeIndex += 1
-				print("From upgrade: " + str(gameManager.dialougeIndex))
-				gameManager.pipesUpgraded = true
-				gameManager.objValues.pipe *= 2
-			toolSFX.stream = load("res://Sounds/Demolish.mp3")
-			toolSFX.play()
+					current.queue_free()
+					
+				current.get_node("warningIcon").queue_free()
+					
+				gameManager.money -= fix_cost # Deduct the fix cost (was 500000)
+					
+				toolSFX.stream = load("res://Sounds/Demolish.mp3")
+				toolSFX.play()
+			else:
+				print("Could not find root for:", target.name)
 			return
-
+					
 	toolSFX.stream = load("res://Sounds/Place Down.mp3")
 	toolSFX.play()
+	
 	var posText = str(Vector3(pos.x, 0.305, pos.z))
-		
 	if occupied_tiles.has(posText):
 		if pipes.has(tool):
 			pipe_scene = load("res://Scenes/pipes/drain/" + tool + ".tscn")
@@ -480,6 +649,7 @@ func place_obj(tool, pos: Vector3):
 	if layer1.visible:
 		map.get_node("Placed/surface").add_child(new_obj)
 	else:
+		map.get_node("Placed/under").add_child(new_obj)
 		if gameManager.pipesUpgraded:
 			if new_obj.get_node("mesh"):
 				var meshRes = new_obj.get_node("mesh").mesh.resource_path
@@ -493,7 +663,6 @@ func place_obj(tool, pos: Vector3):
 					meshType = meshRes.trim_suffix(".obj").trim_prefix("res://Models/Pipes/Pipe - ")
 					newMesh = load("res://Models/Pipes/Upgraded Pipe - "+meshType+".obj")
 				new_obj.get_node("mesh").mesh = newMesh
-		map.get_node("Placed/under").add_child(new_obj)
 	
 	var tween = create_tween()
 	new_obj.scale = Vector3.ZERO
@@ -505,7 +674,9 @@ func place_obj(tool, pos: Vector3):
 	elif pipes.has(tool):
 		new_obj.global_position = pos-Vector3(0,0.425,0)
 		finalScale = Vector3.ONE
-		#print(new_obj.global_position)
+		if gameManager.pipesUpgraded:
+			new_obj.global_position.y -= 0.08
+		print(new_obj.global_position)
 		#new_obj.get_node("mesh").transparency = 0.5
 	if pipes.has(tool) and pipe_scene.resource_path.contains("res://Scenes/pipes/drain/"):
 		new_obj.global_position = pos-Vector3(0,0.5,0)
@@ -515,6 +686,7 @@ func place_obj(tool, pos: Vector3):
 		
 	tween.tween_property(new_obj, "scale", finalScale , 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	occupy_tile()
+	return new_obj
 	#await tween.finished
 
 	#$"../../map/Placed".check_connection()

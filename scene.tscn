@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://btmd3wsolb0gh" path="res://Sprites/Pipe L-shape Icon.png" id="28_hyak3"]
 [ext_resource type="PackedScene" path="res://Scenes/notification.tscn" id="28_llic6"]
 [ext_resource type="Script" path="res://Scripts/float_notif.gd" id="28_m514l"]
-[ext_resource type="Texture2D" uid="uid://b87o534pfxkad" path="res://Sprites/Characters/ALONA.PNG" id="31_nb0s3"]
+[ext_resource type="Texture2D" uid="uid://b87o534pfxkad" path="res://Sprites/Characters/ALONA.png" id="31_nb0s3"]
 [ext_resource type="Texture2D" uid="uid://7r23gnlbv78b" path="res://Sprites/arrowSelect.svg" id="32_iloo5"]
 [ext_resource type="Texture2D" uid="uid://dy8hjgwecikaw" path="res://Sprites/caution.svg" id="33_g4bmd"]
 [ext_resource type="AudioStream" uid="uid://mcref7i4xbqr" path="res://Sounds/Text.mp3" id="33_x5hgh"]
@@ -931,7 +931,6 @@ mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
 [node name="Black" type="ColorRect" parent="UI"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
